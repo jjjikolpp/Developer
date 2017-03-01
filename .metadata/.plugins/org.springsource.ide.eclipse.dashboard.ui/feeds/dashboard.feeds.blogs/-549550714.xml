@@ -5,7 +5,33 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2017-02-28T07:20:21Z</updated>
+  <updated>2017-03-01T10:22:00Z</updated>
+  <entry>
+    <title>Spring Tips: Programmatic Bean Registration in Spring 5</title>
+    <link rel="alternate" href="https://spring.io/blog/2017/03/01/spring-tips-programmatic-bean-registration-in-spring-5" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2017-02-28:2854</id>
+    <updated>2017-03-01T10:22:00Z</updated>
+    <content type="html">&lt;p&gt;Speaker: &lt;a href="https://www.twitter.com/starbuxman"&gt;Josh Long&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Hi Spring fans! in this installment, we&amp;rsquo;ll look at different ways to register beans with Spring, culminating in the new programmatic bean registration functionality in Spring 5.&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/Q_P28p7XsbQ" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Framework 4.3.7 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2017/03/01/spring-framework-4-3-7-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>St?phane Nicoll</name>
+    </author>
+    <id>tag:spring.io,2017-03-01:2855</id>
+    <updated>2017-03-01T10:21:45Z</updated>
+    <content type="html">&lt;p&gt;It is my pleasure to announce that Spring Framework &lt;a href="https://jira.spring.io/jira/secure/ReleaseNote.jspa?projectId=10000&amp;version=15827"&gt;4.3.7 has been released&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This maintenance release is the base for the upcoming Spring Boot 1.4.5 and 1.5.2 releases and includes over 20 fixes and selected improvements.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://projects.spring.io/spring-framework/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework"&gt;GitHub&lt;/a&gt; | &lt;a href="https://jira.spring.io/browse/SPR"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/htmlsingle/"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>This Week in Spring -   February 28th, 2017</title>
     <link rel="alternate" href="https://spring.io/blog/2017/02/28/this-week-in-spring-february-28th-2017" />
@@ -490,118 +516,5 @@ In the process of addressing above mentioned instability patterns, we have built
 &lt;p&gt;We look forward to your feedback on these new features in &lt;a href="https://github.com/spring-cloud/spring-cloud-task/issues"&gt;Github&lt;/a&gt;, &lt;a href="http://stackoverflow.com/tags/spring-cloud-task"&gt;StackOverflow&lt;/a&gt;, or to me directly via Twitter &lt;a href="https://twitter.com/michaelminella"&gt;@michaelminella&lt;/a&gt;!&lt;/p&gt;
 &lt;p&gt;Finally, if you&amp;rsquo;re in the Atlanta area February 22-24, learn more about Spring Cloud Task at &lt;a href="https://devnexus.com/s/index"&gt;DevNexus&lt;/a&gt;! I&amp;rsquo;ll be speaking about it and it&amp;rsquo;s integration with Spring Batch as well as Spring Cloud Data Flow. You can learn about my talks here: &lt;a href="https://devnexus.com/s/speakers/2423"&gt;Michael Minella&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://cloud.spring.io/spring-cloud-task/"&gt;Spring Cloud Task Home&lt;/a&gt; | &lt;a href="https://github.com/spring-cloud/spring-cloud-task"&gt;Source on GitHub&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-cloud-task/current/reference/htmlsingle/"&gt;Reference Documentation&lt;/a&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Cloud Pipelines 1.0.0.M3 Released</title>
-    <link rel="alternate" href="https://spring.io/blog/2017/02/09/spring-cloud-pipelines-1-0-0-m3-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Marcin Grzejszczak</name>
-    </author>
-    <id>tag:spring.io,2017-02-09:2835</id>
-    <updated>2017-02-09T17:09:41Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;On behalf of the Spring Cloud team it is my pleasure to announce a new milestone release of Spring Cloud Pipelines - &lt;code&gt;1.0.0.M3&lt;/code&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="what-s-new"&gt;&lt;a class="anchor" href="#what-s-new"&gt;&lt;/a&gt;What&amp;#8217;s new?&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Apart from some bug and documentation fixes it¡¯s providing an out of the box support for blue green deployment on Cloud Foundry (both for Concourse and Jenkins)! This is how we do it.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="imageblock"&gt;
-&lt;div class="content"&gt;
-&lt;img src="http://cloud.spring.io/spring-cloud-pipelines/img/intro/prod.png" alt="Production deployment"&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;When you click &lt;code&gt;deploy to prod&lt;/code&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="ulist"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;we¡¯re renaming the current instance of the app e.g. &lt;code&gt;fooService&lt;/code&gt; to &lt;code&gt;fooService-venerable&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;we¡¯re deploying the new instance of the app under the &lt;code&gt;fooService&lt;/code&gt; name&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;now two instances of the same application are running on production&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;When you click on the &lt;code&gt;Complete switch over&lt;/code&gt; step:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="ulist"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;we¡¯re deleting the old instance (&lt;code&gt;fooService-venerable&lt;/code&gt;)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="admonitionblock important"&gt;
-&lt;table&gt;
-&lt;tr&gt;
-&lt;td class="icon"&gt;
-&lt;div class="title"&gt;Important&lt;/div&gt;
-&lt;/td&gt;
-&lt;td class="content"&gt;
-Remember to run this step only after you have confirmed that both instances are working fine!
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="links"&gt;&lt;a class="anchor" href="#links"&gt;&lt;/a&gt;Links&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Please check out any of these links for more information or to contact us:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="ulist"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="http://cloud.spring.io/spring-cloud-pipelines/"&gt;Project page&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="http://cloud.spring.io/spring-cloud-pipelines/spring-cloud-pipelines.html"&gt;Project documentation&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="http://cloud.spring.io/spring-cloud-pipelines/spring-cloud-pipelines.html#concourse"&gt;Concourse opinionated pipeline setup&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="http://concourse.ci"&gt;Concourse Website&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="http://cloud.spring.io/spring-cloud-pipelines/spring-cloud-pipelines.html#jenkins"&gt;Jenkins opinionated pipeline setup&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="https://github.com/jenkinsci/job-dsl-plugin/wiki"&gt;Jenkins Job Dsl Plugin&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="https://gitter.im/spring-cloud/spring-cloud-pipelines"&gt;Spring Cloud Pipelines Gitter&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="https://github.com/spring-cloud/spring-cloud-pipelines"&gt;Spring Cloud Pipelines GitHub page&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Tips: Distributed Tracing with Zipkin</title>
-    <link rel="alternate" href="https://spring.io/blog/2017/02/08/spring-tips-distributed-tracing-with-zipkin" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2017-01-26:2810</id>
-    <updated>2017-02-08T01:39:00Z</updated>
-    <content type="html">&lt;p&gt;Speaker: &lt;a href="https://www.twitter.com/starbuxman"&gt;Josh Long&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Hi Spring fans! In this tip, we&amp;rsquo;ll quickly look at how to integrate distributed tracing with Spring Cloud Sleuth and the OpenZipkin project.&lt;/p&gt;
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/CFLZJSwbYI0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</content>
   </entry>
 </feed>
