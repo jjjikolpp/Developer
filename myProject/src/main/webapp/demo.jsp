@@ -13,11 +13,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript">
+
   	function normalBoard(){
   		alert("dd");
-  		$("div#First_Container").empty();
-  		var str = 'ss';
-  		alert(str);
+  		$("#First_Container").empty();
+  		$("#First_Container").load("include.jsp");
+  		
+  		
   		
   		 
   	}
@@ -81,7 +83,7 @@
       <ul class="nav navbar-nav navbar-right">
       
         <li><a href="#" onClick="normalBoard();">Normal Board</a></li>
-        <li><a href="#">Scrolling Board</a></li>
+        <li><a href="#" onclick="checkSupportsImport()">Scrolling Board</a></li>
         <li><a href="#">Media</a></li>
       </ul>
     </div>
@@ -89,9 +91,10 @@
 </nav>
 
 <!-- First Container -->
-<div class="container-fluid bg-1 text-center" id="First_Container"  style=" padding: 10px; height: auto; min-height: 600px; overflow: auto;">
+<div class="container-fluid bg-1" id="First_Container"  style=" padding: 10px; height: auto; min-height: 600px; overflow: auto;">
+	<div class="text-center">
   <h3 class="margin">Who Am I?</h3>
-  <h3></h3>
+  </div>
 </div>
 
 <!-- Second Container -->
@@ -118,7 +121,6 @@
     </div>
   </div>
 </div>
-
 <!-- Footer -->
 <footer class="container-fluid bg-4 text-center">
   <p><font color="#ccffff">상기 디자인은 w3school 부트스트렙 모델을 참조하였습니다</font></p> 
