@@ -15,12 +15,16 @@
   <script type="text/javascript">
 
   	function normalBoard(){
+  		
   		alert("dd");
+  		
   		$("#First_Container").empty();
   		$("#First_Container").load("include.jsp");
   		
   		
+  		//내가 머하던 중이었는지 기억이 안난다 ㅎㅎㅎㅎ
   		
+  		// controller 정상 작동 하는지 확인 해바야함
   		 
   	}
   </script>
@@ -84,7 +88,7 @@
       
         <li><a href="#" onClick="normalBoard();">Normal Board</a></li>
         <li><a href="#" onclick="checkSupportsImport()">Scrolling Board</a></li>
-        <li><a href="#">Media</a></li>
+        <li><a href="#" href="include">Media</a></li>
       </ul>
     </div>
   </div>
@@ -117,6 +121,7 @@
     </div>
     <div class="col-sm-4"> 
       <p>Media 게시판의 경우 동영상 게제 등을 하고 싶은데 free AWS 용량이 허용될지 모르겠습니다 ( 일단 준비중입니다 )</p>
+      <form >dd</form>
       
     </div>
   </div>

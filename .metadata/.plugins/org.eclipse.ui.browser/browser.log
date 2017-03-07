@@ -2,3 +2,9 @@
 3월 03, 2017 09:19:06.74 NEW SESSION
 3월 03, 2017 09:19:06.74 [560:12068:0303/091906.741:ERROR:content_settings_pref.cc(469)] Invalid pattern strings: ,http://wow.inven.co.kr:80
 3월 03, 2017 09:19:06.74 [560:12068:0303/091906.742:ERROR:content_settings_pref.cc(295)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+
+3월 03, 2017 19:27:14.81 NEW SESSION
+3월 03, 2017 19:27:14.81 [11180:14056:0303/192714.811:ERROR:content_settings_pref.cc(469)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+3월 03, 2017 19:27:14.81 [11180:14056:0303/192714.812:ERROR:content_settings_pref.cc(295)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+3월 03, 2017 23:42:10.26 [WARNING:..\..\..\..\flash\platform\pepper\pep_module.cpp(63)] SANDBOXED
+3월 04, 2017 24:03:20.64 [WARNING:..\..\..\..\flash\platform\pepper\pep_module.cpp(63)] SANDBOXED

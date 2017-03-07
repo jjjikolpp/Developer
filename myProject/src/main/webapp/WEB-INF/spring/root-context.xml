@@ -25,7 +25,7 @@
 	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.model.AnnoInter" />
+		<property name="mapperInterface" value="com.model.Normal_Board_AnnoInter" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactoryBean" />
 	</bean>
 </beans>

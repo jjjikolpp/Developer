@@ -1,0 +1,10 @@
+package com.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+public class Controller {
+	@RequestMapping("AJAX_POST_URL")
+	public void head(){
+		System.out.println("head 완료");
+	}
+}

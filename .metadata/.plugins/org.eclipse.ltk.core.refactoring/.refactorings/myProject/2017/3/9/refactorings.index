@@ -3,3 +3,10 @@
 1488499746493	Move file
 1488500188852	Rename package 'com.controller'
 1488500224848	Rename package 'com.controller.controller'
+1488521440482	Delete element
+1488638200646	Rename type 'Bean'
+1488639023453	Rename type 'daoInter'
+1488639062556	Delete element
+1488639316302	Rename type 'Dao'
+1488639332666	Rename type 'AnnoInter'
+1488639340961	Rename type 'Normal_board_AnnoInter'

@@ -1,0 +1,10 @@
+package com.model;
+
+import java.awt.List;
+
+import org.apache.ibatis.annotations.Select;
+
+public interface AnnoInter {
+	@Select("select * from normal_board;");
+	public
+}
