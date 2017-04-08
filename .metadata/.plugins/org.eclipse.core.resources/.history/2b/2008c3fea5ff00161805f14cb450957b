@@ -1,4 +1,0 @@
-driver=org.mariadb.jdbc.Driver
-url=jdbc:mysql://localhost:3306/final
-username=wbp
-password=123

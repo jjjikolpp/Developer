@@ -13,19 +13,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript">
-
   	function normalBoard(){
   		
-  		alert("dd");
-  		
   		$("#First_Container").empty();
-  		$("#First_Container").load("include.jsp");
-  		
-  		
-  		//내가 머하던 중이었는지 기억이 안난다 ㅎㅎㅎㅎ
-  		
-  		// controller 정상 작동 하는지 확인 해바야함
-  		 
+  		$("#First_Container").load("include_normal_board.jsp");
   	}
   </script>
   <style>
@@ -104,7 +95,7 @@
 <!-- Second Container -->
 <div class="container-fluid bg-2 text-center">
   안녕하세요 저는 작년 6월~11월 까지 acorn 아카데미에서 JAVA 프레임워크기반 프로그래밍 교육을 이수한 김영돈입니다.
-  
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 </div>
 
 <!-- Third Container (Grid) -->
