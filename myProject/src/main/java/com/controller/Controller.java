@@ -34,7 +34,10 @@ public class Controller {
 	public Map<String, Object> head(){
 		List<Map<String, String>> dataList = new ArrayList<Map<String,String>>();
 		Map<String, String> data = null;
-	        	
+	    
+		String count = daointer.NormalCount();
+		System.out.println(count);
+		
 		List<Normal_Board_Dto> boardList = daointer.NormalBoard();
 		for(Normal_Board_Dto s : boardList){
 			data = new HashMap<String, String>();
@@ -45,6 +48,7 @@ public class Controller {
 			
 			dataList.add(data);
 		}
+		
 		
 		Map<String, Object> jsonData = new HashMap<String, Object>();
 		jsonData.put("datas", dataList);
@@ -130,5 +134,7 @@ public class Controller {
 		data.put("state", state);
 		return data;
 	}
+	
+	
 	
 }

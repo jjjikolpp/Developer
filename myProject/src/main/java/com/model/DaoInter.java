@@ -12,5 +12,6 @@ public interface DaoInter {
 	boolean NormalUpdate(Normal_Board_Bean bean)throws DataAccessException;
 	boolean NormalDelete(String no)throws DataAccessException;
 	
+	String NormalCount()throws DataAccessException;	
 	
 }

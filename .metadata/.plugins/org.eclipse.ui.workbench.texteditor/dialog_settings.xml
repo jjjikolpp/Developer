@@ -2,22 +2,23 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="텍스트" key="selection"/>
+		<item value="updateOk" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="텍스트"/>
-			<item value="updateCheck"/>
 			<item value="updateOk"/>
-			<item value="modal(&apos;show&apos;);"/>
-			<item value="insertCheck"/>
-			<item value="insertOk()"/>
-			<item value="insertOk() "/>
-			<item value="insertCheck()"/>
+			<item value="insertOk"/>
+			<item value="insert"/>
+			<item value="updateC"/>
+			<item value="updateO"/>
+			<item value="updateCh"/>
+			<item value="update"/>
+			<item value="dd"/>
 		</list>
 		<list key="replacehistory">
+			<item value="selectShow"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

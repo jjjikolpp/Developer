@@ -39,4 +39,11 @@ public class DataDao implements DaoInter {
 		
 		return annointer.Normal_Board_Delete(no);
 	}
+	
+	@Override
+	public String NormalCount() throws DataAccessException {
+		String count = annointer.Normal_Board_Count();
+		return count;
+	}
+	
 }
