@@ -12,8 +12,9 @@ public class DataDao implements DaoInter {
 	private AnnoInter annointer;
 	
 	@Override
-	public List<Normal_Board_Dto> NormalBoard() throws DataAccessException {
-		return annointer.Normal_Board_Vew_List();
+	public List<Normal_Board_Dto> NormalBoard(String pageNo) throws DataAccessException {
+		System.out.println(pageNo + " page No 는");
+		return annointer.Normal_Board_Vew_List(pageNo);
 	}
 	
 	@Override
@@ -24,8 +25,6 @@ public class DataDao implements DaoInter {
 	@Override
 	public Normal_Board_Dto SelectNormalBoard(String no) throws DataAccessException {
 		Normal_Board_Dto bean = (Normal_Board_Dto) annointer.Normal_Board_View_Select(no);
-		System.out.println("dao 작동");
-		System.out.println("Context는  "+bean.getN_context());
 		return bean;
 	}
 	

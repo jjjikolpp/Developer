@@ -9,8 +9,8 @@ import org.apache.ibatis.annotations.Update;
 
 public interface AnnoInter {
 	
-	@Select("select * from normal_board order by n_no desc limit 0,3")
-	public List<Normal_Board_Dto> Normal_Board_Vew_List();
+	@Select("select * from normal_board order by n_no desc limit #{pageNo},3")
+	public List<Normal_Board_Dto> Normal_Board_Vew_List(String pageNo);
 	
 	@Select("select n_no, n_title, n_writer, n_context from normal_board where n_no = #{no}")
 	public Normal_Board_Dto Normal_Board_View_Select(String no);

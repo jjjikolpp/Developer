@@ -11,15 +11,45 @@
 	var writer;
 	var context;
 	var nno;
-	$(document).ready(normalViewAll());
+	var pageNo = 1;
+	var pageNum = 0;
+	var state;
+	//$(document).ready(normalViewAll());
+	$(document).ready(count(1));
+	
+	function count(pageNo){
+		
+		console.log(pageNo);
+		$.ajax({
 
-	function normalViewAll() {
+			type : "get",
+			url : "normal_count",
+			dataType : "json",
+			data : {pageNo : pageNo},
+			success : function(data) {
+				pageNum = data.count;
+				console.log("count : " + data.count);
+			},
+			error : function(error) {
+				console.log("normal_count err");
+			}
+		});
+		setTimeout( () => {
+		normalViewAll(pageNo);
+			
+		}, 10);
+	}
+	
+	function normalViewAll(pageNo) {
+		$("#jsonId").empty();
+		
+
 		$.ajax({
 
 			type : "get",
 			url : "normal",
 			dataType : "json",
-			data : null,
+			data : {pageNo : pageNo},
 			success : function(jsonData) {
 				//console.log("data loding success");
 				var str = "";
@@ -28,21 +58,33 @@
 				//$("#jsonId").empty();
 				$(list).each(
 						function(index, objArr) {
+							var splitid = this.n_context.substring(0,3);
+							//console.log(splitid);
+							
 							str += '<tr>';
-							str += '<td size="5">' + this.n_no + '</td>';
-							str += '<td size="5">' + this.n_writer + '</td>';
-							str += '<td size="10">' + this.n_title + '</td>';
-							str += '<td>' + '<a href="#" onclick="selectShow('
-									+ this.n_no + ')">' + this.n_context
+							str += '<td width="10%">' + this.n_no + '</td>';
+							str += '<td width="20%">' + this.n_writer + '</td>';
+							str += '<td width="25%">' + this.n_title + '</td>';
+							str += '<td width="40%">' + '<a href="#" onclick="selectShow('
+									+ this.n_no + ')">' + splitid
 									+ '<a>' + '</td>';
 							str += '</tr>';
 						});
-
 				$("#jsonId").append(str) // 게시물
+				// paging
+				str = "";
+				for (var a = 1; a <= pageNum; a++) {
+					if (a  == pageNo) {
+						
+						str += a + "&nbsp";
+					}else{
+						str += '<a href="#" onclick="count('+ a + ')">' + a + '</a>' + '&nbsp';
+					}
+				}
 				
-				
-				
-				$("#jsonId").append("dd");
+				// 중
+				$("#jsonId").append(str);
+
 			},
 			error : function() {
 				console.log("normal_board_error");
@@ -52,11 +94,11 @@
 	}
 
 	function insertOk() { //작업중  // 
-		var writer = $("#insertWriter").val();
-		var title = $("#insertTitle").val();
-		var context = $("#insertText").val();
+		writer = $("#insertWriter").val();
+		title = $("#insertTitle").val();
+		context = $("#insertText").val();
 		var formData = [ writer, title, context ];
-		var state = "normal";
+		
 		//
 		console.log('insert 동작중');
 
@@ -72,7 +114,7 @@
 			success : function(stateData) {
 				console.log(stateData);
 				$("#jsonId").empty();
-				normalViewAll();
+				normalViewAll("1");
 			},
 			error : function(error) {
 				console.log(error);
@@ -97,25 +139,28 @@
 						title = jsonData.n_title;
 						writer = jsonData.n_writer;
 						context = jsonData.n_context;
-						var y = [n_no, title, writer, context];
+						var y = [ n_no, title, writer, context ];
 
 						var str = "";
 						str += '<button type="button" class="close" data-dismiss="modal">&times;</button>';
-						str += '<div class="row">';
+						
 						str += '<div class="col-sm-9">';
 						str += '<h4 class="modal-title">' + n_no + '번글</h4>'; // 1번호 작업
 						str += '</div>';
-						str += '<div class="col-sm-9">';
-						str += '글쓴이 : '+jsonData.n_writer;
-						str += '</div>';
-						str += '</div>';
-						str += '<div class="col-sm-9">';
-						str += '제목 : '+jsonData.n_title;
+						str += '<div class="col-sm-9" id="insertWriter">';
+						str += '글쓴이 : ' + jsonData.n_writer;
+						str += '</div></div>';
+						
+						str += '<div class="col-sm-9" id="insertTitle">';
+						str += '제목 : ' + jsonData.n_title;
 						str += '</div>';
 
 						$("#modalTitle").html(str);
-
-						$("#modalBody").html(jsonData.n_context);
+						
+						str = "";
+						str += '<div id="updateContext">'+jsonData.n_context+'</div>';
+						
+						$("#modalBody").html(str);
 
 						str = "";
 
@@ -143,36 +188,35 @@
 	}
 
 	function updateGo(n_no) {
-		
-		
+		state = 2;
 		str = "";
-
+		
 		str += '<button type="button" class="close" data-dismiss="modal">&times;</button>';
 		str += '<h4 class="modal-title">' + n_no + '번글 수정하기</h4>';
 		str += '<div class="col-sm-3">';
-		str += '<input class="form-control" id="updateWriter" name="name" type="text" placeholder="'+writer+'" value="'+writer+'" >';
+		str += '<input class="form-control" id="insertWriter" name="name" type="text" placeholder="'+writer+'" value="'+writer+'" >';
 		str += '</div>';
-		str += '<div class="col-sm-9"><input type="text" class="form-control" id="updateTitle" placeholder="'+title+'" value="'+title+'"></div>';
-		
+		str += '<div class="col-sm-9"><input type="text" class="form-control" id="insertTitle" placeholder="'+title+'" value="'+title+'"></div>';
 
 		$("#modalTitle").html(str);
 
 		str = "";
 
-		str += '<textarea class="form-control" rows="15" id="updateText">'
+		str += '<textarea class="form-control" rows="15" id="insertText">'
 				+ context + '</textarea>';
 
 		$("#modalBody").html(str);
 
-		str = '<button type="button" onclick="updateOk();" class="btn btn-default" data-dismiss="modal">수정하기</button> <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>';
+		str = '<button type="button" onclick="insertCheck('+state+');" class="btn btn-default" data-dismiss="modal">수정하기</button> <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>';
 
 		$("#modalFooter").html(str);
 	}
 
 	function updateOk() {
-		title = $("#updateTitle").val();
-		writer = $("#updateWriter").val();
-		context = $("#updateText").val();
+		title = $("#insertTitle").val();
+		writer = $("#insertWriter").val();
+		context = $("#insertText").val();
+		console.log("title : " + title + ", writer : " + writer + ", context : " + context)
 
 		$.ajax({
 			url : 'updateOk',
@@ -188,7 +232,7 @@
 				if (data.state == "UpdateCheckOk") {
 					console.log("update 완료");
 					$("#jsonId").empty();
-					normalViewAll();
+					normalViewAll(1);
 				} else if (data.state == "UpdateCheckNo") {
 					console.log("update 실패")
 				} else {
@@ -199,6 +243,7 @@
 
 			}
 		});
+
 	};
 
 	function deleteGo(n_no) {
@@ -227,10 +272,20 @@
 
 	}
 	
-	 
-	
-	function insertCheck() {
-		var blank_pattern = /[\s]/g;
+	function getTextLength(str) { // 문자열 길이
+        var len = 0;
+        for (var i = 0; i < str.length; i++) {
+            if (escape(str.charAt(i)).length == 6) {
+                len++;
+            }
+            len++;
+        }
+        return len;
+    }
+
+
+	function insertCheck(state) { // 여기하는중
+		//alert(getTextLength($("#insertWriter").val()));
 		if ($.trim($("#insertWriter").val()) == "") {
 			str = "";
 
@@ -286,13 +341,21 @@
 			});
 
 		} else {
-			insertOk();
+			if (state == 1) {
+				insertOk();
+				
+			}else if (state == 2){
+				updateOk();
+			}else {
+				alert("insert / update Check err")
+				return;
+			}
 			$('#myModal').modal('hide');
 		}
 	}
 
 	function writeView() {
-
+		state = "1";
 		var str = "";
 
 		str += '<button type="button" class="close" data-dismiss="modal">&times;</button>';
@@ -315,7 +378,7 @@
 
 		str = "";
 
-		str += '<button type="button" onclick="insertCheck();" class="btn btn-default" >작성완료</button>';
+		str += '<button type="button" onclick="insertCheck('+state+')" class="btn btn-default" >작성완료</button>';
 		str += '<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>';
 
 		str += '</div>';
@@ -332,8 +395,8 @@
 				<tr>
 					<th>글번호</th>
 					<th>작성자</th>
-					<th width="35%">제목</th>
-					<th width="40%">내용</th>
+					<th>제목</th>
+					<th>내용</th>
 				</tr>
 			</thead>
 			<tbody id="jsonId">

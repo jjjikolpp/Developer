@@ -351,3 +351,24 @@
 4월 11, 2017 05:07:39.55 A Parser-blocking, cross site (i.e. different eTLD+1) script, http://t1.daumcdn.net/tistory_admin/lib/jquery-1.12.4.min.js, is invoked via document.write. This MAY be blocked by the browser in this or a future page load due to poor network connectivity. If blocked in this page load, it will be confirmed in a subsequent console message.See https://www.chromestatus.com/feature/5718547946799104 for more details.
 4월 11, 2017 05:07:39.55 A Parser-blocking, cross site (i.e. different eTLD+1) script, http://t1.daumcdn.net/tistory_admin/lib/jquery-1.12.4.min.js, is invoked via document.write. This MAY be blocked by the browser in this or a future page load due to poor network connectivity. If blocked in this page load, it will be confirmed in a subsequent console message.See https://www.chromestatus.com/feature/5718547946799104 for more details.
 4월 11, 2017 05:11:16.85 A Parser-blocking, cross site (i.e. different eTLD+1) script, http://t1.daumcdn.net/tistory_admin/lib/jquery-1.12.4.min.js, is invoked via document.write. This MAY be blocked by the browser in this or a future page load due to poor network connectivity. If blocked in this page load, it will be confirmed in a subsequent console message.See http
+
+4월 12, 2017 08:53:24.06 NEW SESSION
+4월 12, 2017 08:53:24.06 [14160:13616:0412/085324.064:ERROR:content_settings_pref.cc(469)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 12, 2017 08:53:24.06 [14160:13616:0412/085324.065:ERROR:content_settings_pref.cc(295)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 12, 2017 08:53:24.25 [2220:9744:0412/085324.250:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+
+4월 12, 2017 16:33:00.84 NEW SESSION
+4월 12, 2017 16:33:00.84 [13700:8224:0412/163300.848:ERROR:content_settings_pref.cc(469)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 12, 2017 16:33:00.84 [13700:8224:0412/163300.848:ERROR:content_settings_pref.cc(295)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 12, 2017 16:33:01.05 [2600:6936:0412/163301.058:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+4월 12, 2017 16:51:52.59 [WARNING:..\..\..\..\flash\platform\pepper\pep_module.cpp(63)] SANDBOXED
+
+4월 13, 2017 09:47:38.92 NEW SESSION
+4월 13, 2017 09:47:38.92 [15172:14664:0413/094738.922:ERROR:content_settings_pref.cc(469)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 13, 2017 09:47:38.93 [15172:14664:0413/094738.922:ERROR:content_settings_pref.cc(295)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 13, 2017 09:47:39.14 [13080:6380:0413/094739.145:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+
+4월 14, 2017 04:30:27.50 NEW SESSION
+4월 14, 2017 04:30:27.50 [9264:12648:0414/043027.502:ERROR:content_settings_pref.cc(469)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 14, 2017 04:30:27.50 [9264:12648:0414/043027.502:ERROR:content_settings_pref.cc(295)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 14, 2017 04:30:27.74 [12756:8864:0414/043027.746:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
