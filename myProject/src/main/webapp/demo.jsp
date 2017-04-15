@@ -25,6 +25,9 @@
       line-height: 1.8;
       color: #f5f6f7;
   }
+  .normal_board {
+  	font-size : 18px
+  }
   p {font-size: 16px;}
   .margin {margin-bottom: 45px;}
   .bg-1 { 

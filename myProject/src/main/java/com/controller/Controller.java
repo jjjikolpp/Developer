@@ -29,15 +29,16 @@ public class Controller {
 		String count = daointer.NormalCount();
 		
 		int maxPageNum = 0;
-		if (Integer.parseInt(count) > 30) { //
-			maxPageNum = 10;
-		}else if(Integer.parseInt(count) <= 30 && Integer.parseInt(count) != 0){ //
-			Double ss = Math.ceil(Double.parseDouble(count)/3);  //
+		
+		if(Integer.parseInt(count) != 0){ 
+			Double ss = Math.ceil(Double.parseDouble(count)/3);  
 			maxPageNum = ss.intValue();
-			System.out.println(maxPageNum);
 		}else{
 			maxPageNum = 0;
 		}
+		
+		
+		
 		Map<String, String> data = new HashMap<String, String>();
 		data.put("count", Integer.toString(maxPageNum));
 		return data;
@@ -48,9 +49,11 @@ public class Controller {
 	public Map<String, Object> head(@RequestParam("pageNo") String pageNo){
 		List<Map<String, String>> dataList = new ArrayList<Map<String,String>>();
 		Map<String, String> data = null;
-		System.out.println(pageNo);
-	    String no = Integer.toString(((Integer.parseInt(pageNo)-1)* 3));
 		
+		
+		
+	    String no = Integer.toString(((Integer.parseInt(pageNo)-1)* 3));
+	    
 		List<Normal_Board_Dto> boardList = daointer.NormalBoard(no);
 		for(Normal_Board_Dto s : boardList){
 			data = new HashMap<String, String>();

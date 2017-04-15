@@ -13,13 +13,15 @@
 	var nno;
 	var pageNo = 1;
 	var pageNum = 0;
+	var pageSave = 1;
 	var state;
+
 	//$(document).ready(normalViewAll());
 	$(document).ready(count(1));
 	
 	function count(pageNo){
 		
-		console.log(pageNo);
+		console.log("pageNo : " +  pageNo);
 		$.ajax({
 
 			type : "get",
@@ -28,7 +30,7 @@
 			data : {pageNo : pageNo},
 			success : function(data) {
 				pageNum = data.count;
-				console.log("count : " + data.count);
+				
 			},
 			error : function(error) {
 				console.log("normal_count err");
@@ -37,7 +39,7 @@
 		setTimeout( () => {
 		normalViewAll(pageNo);
 			
-		}, 10);
+		}, 20);
 	}
 	
 	function normalViewAll(pageNo) {
@@ -60,30 +62,87 @@
 						function(index, objArr) {
 							var splitid = this.n_context.substring(0,3);
 							//console.log(splitid);
-							
 							str += '<tr>';
-							str += '<td width="10%">' + this.n_no + '</td>';
-							str += '<td width="20%">' + this.n_writer + '</td>';
-							str += '<td width="25%">' + this.n_title + '</td>';
-							str += '<td width="40%">' + '<a href="#" onclick="selectShow('
+							str += '<td class="col-sm-1">' + this.n_no + '</td>';
+							str += '<td class="col-sm-2">' + this.n_writer + '</td>';
+							str += '<td class="col-sm-3">' + this.n_title + '</td>';
+							str += '<td class="col-sm-6">' + '<a href="#" onclick="selectShow('
 									+ this.n_no + ')">' + splitid
 									+ '<a>' + '</td>';
 							str += '</tr>';
 						});
-				$("#jsonId").append(str) // 게시물
-				// paging
+				$("#jsonId").append(str) 
+				
+				
 				str = "";
-				for (var a = 1; a <= pageNum; a++) {
-					if (a  == pageNo) {
-						
-						str += a + "&nbsp";
-					}else{
-						str += '<a href="#" onclick="count('+ a + ')">' + a + '</a>' + '&nbsp';
+				if (pageNum <= 10) {
+					
+					for (var a = 1; a <= pageNum; a++) {
+						if (a  == pageNo) {
+							str += a + "&nbsp";
+						}else{
+							str += '<a href="#" onclick="count('+ a + ')">' + a + '</a>' + '&nbsp';
+						}	
 					}
+				}else if(pageNum > 10){
+					
+					if (pageSave != Math.ceil(pageNo/10)) {
+						pageSave = Math.ceil(pageNo/10);
+					}
+					
+						console.log("pageSave : " +  pageSave);
+					
+					// 여기부터
+					if(pageSave == 1){
+						
+					str += '<a href="#" onclick="count('+(pageNo - 1)+')"><</a>' ;
+					for (var a = 1; a <= 10; a++) {
+						if (a  == pageNo) {
+							str += a + "&nbsp";
+						}else{
+							str += '<a href="#" onclick="count('+ a + ')">' + a + '</a>' + '&nbsp';
+						}	
+					}
+					str += '<a href="#" onclick="count('+(pageNo + 1)+')">></a>' ;
+					
+					// 두번째 페이징
+					}else if(pageSave != 1){
+						
+						str += '<a href="#" onclick="count('+(pageNo - 1)+')"><</a>' ;
+						for (var a = 1; a <= 10; a++) {
+							var checkNum = (pageSave-1).toString() + a;
+							
+							if (checkNum == pageNo) {
+								if (a != 10) {
+									str += checkNum + "&nbsp";
+								}else{
+									str += str += pageSave * 10 + "&nbsp";
+								}
+							}else{
+								if (a != 10) {
+									str += '<a href="#" onclick="count('+ checkNum + ')">' + checkNum + '</a>' + '&nbsp';
+								}else{
+									str += '<a href="#" onclick="count('+ pageSave * 10 + ')">' + pageSave * 10 + '</a>' + '&nbsp';
+								}
+								
+							}		
+							
+							//	if (a != 10){
+								//	str += '<a href="#" onclick="count('+ a + ')">' + (pageSave -1 ).toString() +a+ '</a>' + '&nbsp';
+							//	}else{
+								//	str += pageSave * 10 + "&nbsp";
+							//	}
+							
+						}
+						str += '<a href="#" onclick="count('+(pageNo + 1)+')">></a>' ;
+					}
+					// 여기까지
+					
 				}
 				
-				// 중
 				$("#jsonId").append(str);
+				
+				
 
 			},
 			error : function() {
@@ -92,6 +151,7 @@
 
 		});
 	}
+	
 
 	function insertOk() { //작업중  // 
 		writer = $("#insertWriter").val();
@@ -99,7 +159,6 @@
 		context = $("#insertText").val();
 		var formData = [ writer, title, context ];
 		
-		//
 		console.log('insert 동작중');
 
 		$.ajax({
@@ -389,9 +448,10 @@
 	}
 </script>
 <body>
-	<div class="container bg-3">
+	<div class="container bg-3 normal_board">
 		<table class="table">
 			<thead>
+				<!-- 작업2중 -->
 				<tr>
 					<th>글번호</th>
 					<th>작성자</th>
