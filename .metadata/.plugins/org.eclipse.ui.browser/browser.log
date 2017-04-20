@@ -1316,3 +1316,18 @@
 4월 15, 2017 16:07:57.02 A Parser-blocking, cross site (i.e. different eTLD+1) script, http://pagead2.googlesyndication.com/pagead/show_ads.js, is invoked via document.write. This MAY be blocked by the browser in this or a future page load due to poor network connectivity. If blocked in this page load, it will be confirmed in a subsequent console message.See https://www.chromestatus.com/feature/5718547946799104 for more details.
 4월 15, 2017 16:07:57.02 A Parser-blocking, cross site (i.e. different eTLD+1) script, http://pagead2.googlesyndication.com/pagead/show_ads.js, is invoked via document.write. This MAY be blocked by the browser in this or a future page load due to poor network connectivity. If blocked in this page load, it will be confirmed in a subsequent console message.See https://www.chromestatus.com/feature/5718547946799104 for more details.
 4월 15, 2017 16:07:57.02 A Parser-blocking, cross site (i.e. different eTLD+1) script, http://cas.criteo.com/delivery/ajs.php?ptv=9&zoneid=515725&cb=42707435952&nodis=1&charset=UTF-8&dc=3&atfr=0&loc=http%3A%2F%2Fbbs.ruliweb.com%2Fcommunity%2Fboard%2F300143%2Fread%2F33263755%3Fpage%3D21, is invoked via document.write. This MAY be blocked by the browser in this or a future page load due to poor network connectivity. If blocked in this page load, it will be confirmed in a subsequent console message.See https://www.chromestatus.com/feature/5718547946799104 for more details.
+
+4월 17, 2017 17:35:15.92 NEW SESSION
+4월 17, 2017 17:35:15.92 [7708:8324:0417/173515.924:ERROR:content_settings_pref.cc(469)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 17, 2017 17:35:15.94 [7708:8324:0417/173515.924:ERROR:content_settings_pref.cc(295)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 17, 2017 17:35:16.08 [7812:12040:0417/173516.084:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+
+4월 17, 2017 22:40:48.24 NEW SESSION
+4월 17, 2017 22:40:48.24 [13656:12648:0417/224048.241:ERROR:content_settings_pref.cc(469)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 17, 2017 22:40:48.24 [13656:12648:0417/224048.243:ERROR:content_settings_pref.cc(295)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 17, 2017 22:40:48.44 [2140:7092:0417/224048.441:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+
+4월 20, 2017 11:18:44.11 NEW SESSION
+4월 20, 2017 11:18:44.11 [8820:8248:0420/111844.113:ERROR:content_settings_pref.cc(469)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 20, 2017 11:18:44.12 [8820:8248:0420/111844.113:ERROR:content_settings_pref.cc(295)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 20, 2017 11:18:44.32 [1224:14472:0420/111844.319:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain

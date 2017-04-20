@@ -2,33 +2,37 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Math" key="selection"/>
+		<item value="empty" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot;"/>
-			<item value="math"/>
-			<item value="console"/>
-			<item value="round"/>
-			<item value="floor"/>
-			<item value="ceil"/>
-			<item value="condition"/>
-			<item value="float"/>
+			<item value="empty"/>
+			<item value="normal_board_under"/>
+			<item value="검색"/>
+			<item value="ㄴㄴㄴ"/>
+			<item value="align"/>
+			<item value="style"/>
+			<item value="Mth"/>
+			<item value="작업중"/>
 		</list>
 		<list key="replacehistory">
+			<item value="normal_board_under1"/>
+			<item value="normal_board_under"/>
+			<item value="Math"/>
+			<item value="countNo"/>
+			<item value="maxPageNum"/>
 			<item value="insertTex"/>
 			<item value="insertTit"/>
 			<item value="insertWri"/>
-			<item value="selectShow"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="288" key="DIALOG_WIDTH"/>
 		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
 		<item value="391" key="DIALOG_HEIGHT"/>
-		<item value="1151" key="DIALOG_X_ORIGIN"/>
-		<item value="198" key="DIALOG_Y_ORIGIN"/>
+		<item value="1234" key="DIALOG_X_ORIGIN"/>
+		<item value="245" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

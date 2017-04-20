@@ -11,14 +11,14 @@
 	var writer;
 	var context;
 	var nno;
-	var pageNo = 1;
-	var pageNum = 0;
-	var pageSave = 1;
+	var pageNo = 1;  // 작은 현재 페이지
+	var maxPageNum = 0; // 최대 페이지
+	var pageSave = 1; //큰 현재 페이지
 	var state;
+	var countNo;
 
 	//$(document).ready(normalViewAll());
 	$(document).ready(count(1));
-	
 	function count(pageNo){
 		
 		console.log("pageNo : " +  pageNo);
@@ -29,7 +29,8 @@
 			dataType : "json",
 			data : {pageNo : pageNo},
 			success : function(data) {
-				pageNum = data.count;
+				maxPageNum = data.maxPageNum;
+				countNo = data.count;
 				
 			},
 			error : function(error) {
@@ -44,6 +45,7 @@
 	
 	function normalViewAll(pageNo) {
 		$("#jsonId").empty();
+		$("#normal_board_under1").empty();
 		
 
 		$.ajax({
@@ -73,42 +75,39 @@
 						});
 				$("#jsonId").append(str) 
 				
-				
-				str = "";
-				if (pageNum <= 10) {
+				str = '';
+				// 여기 는 페이징
+				if (maxPageNum <= 10) {
 					
-					for (var a = 1; a <= pageNum; a++) {
+					for (var a = 1; a <= maxPageNum; a++) {
 						if (a  == pageNo) {
 							str += a + "&nbsp";
 						}else{
 							str += '<a href="#" onclick="count('+ a + ')">' + a + '</a>' + '&nbsp';
 						}	
 					}
-				}else if(pageNum > 10){
+				}else if(maxPageNum > 10){
 					
 					if (pageSave != Math.ceil(pageNo/10)) {
 						pageSave = Math.ceil(pageNo/10);
 					}
-					
-						console.log("pageSave : " +  pageSave);
-					
-					// 여기부터
+										
 					if(pageSave == 1){
-						
-					str += '<a href="#" onclick="count('+(pageNo - 1)+')"><</a>' ;
-					for (var a = 1; a <= 10; a++) {
-						if (a  == pageNo) {
-							str += a + "&nbsp";
-						}else{
-							str += '<a href="#" onclick="count('+ a + ')">' + a + '</a>' + '&nbsp';
-						}	
-					}
-					str += '<a href="#" onclick="count('+(pageNo + 1)+')">></a>' ;
 					
-					// 두번째 페이징
+						for (var a = 1; a <= 10; a++) {
+							if (a  == pageNo) {
+								str += a + "&nbsp";
+							}else{
+								str += '<a href="#" onclick="count('+ a + ')">' + a + '</a>' + '&nbsp';
+							}	
+						}
+						str += '<a href="#" onclick="count('+(pageNo + 1)+')">></a>' ;
+					
 					}else if(pageSave != 1){
 						
-						str += '<a href="#" onclick="count('+(pageNo - 1)+')"><</a>' ;
+						str += '<a href="#" onclick="count('+(pageNo - 1)+')"><</a>' ;	
+						if (pageSave != Math.ceil((countNo/3)/10)) {
+						
 						for (var a = 1; a <= 10; a++) {
 							var checkNum = (pageSave-1).toString() + a;
 							
@@ -116,7 +115,7 @@
 								if (a != 10) {
 									str += checkNum + "&nbsp";
 								}else{
-									str += str += pageSave * 10 + "&nbsp";
+									str += pageSave * 10 + "&nbsp";
 								}
 							}else{
 								if (a != 10) {
@@ -124,26 +123,39 @@
 								}else{
 									str += '<a href="#" onclick="count('+ pageSave * 10 + ')">' + pageSave * 10 + '</a>' + '&nbsp';
 								}
-								
 							}		
-							
-							//	if (a != 10){
-								//	str += '<a href="#" onclick="count('+ a + ')">' + (pageSave -1 ).toString() +a+ '</a>' + '&nbsp';
-							//	}else{
-								//	str += pageSave * 10 + "&nbsp";
-							//	}
-							
+						}	
+						} // 작업중
+						
+						if (pageSave == Math.ceil((countNo/3)/10)) {
+							var ccc =  Math.ceil(countNo/3) - 10 * (pageSave -1);
+							for (var a = 1; a < ccc + 1; a++) {
+								var checkNum = (pageSave-1).toString() + a;
+								
+								if (checkNum == pageNo) {
+									if (a != 10) {
+										str += checkNum + "&nbsp";
+									}else{
+										str += pageSave * 10 + "&nbsp";
+									}
+								}else{
+									if (a != 10) {
+										str += '<a href="#" onclick="count('+ checkNum + ')">' + checkNum + '</a>' + '&nbsp';
+									}else{
+										str += '<a href="#" onclick="count('+ pageSave * 10 + ')">' + pageSave * 10 + '</a>' + '&nbsp';
+									}
+									
+								}
+							}
+							console.log("더이상의 페이지 없음 : " + ccc);
+						}else{
+							str += '<a href="#" onclick="count('+(pageNo + 1)+')">></a>';							
 						}
-						str += '<a href="#" onclick="count('+(pageNo + 1)+')">></a>' ;
 					}
-					// 여기까지
-					
 				}
+				str += "</div>"; 
 				
-				$("#jsonId").append(str);
-				
-				
-
+				$("#normal_board_under1").append(str);
 			},
 			error : function() {
 				console.log("normal_board_error");
@@ -153,7 +165,7 @@
 	}
 	
 
-	function insertOk() { //작업중  // 
+	function insertOk() {
 		writer = $("#insertWriter").val();
 		title = $("#insertTitle").val();
 		context = $("#insertText").val();
@@ -173,6 +185,7 @@
 			success : function(stateData) {
 				console.log(stateData);
 				$("#jsonId").empty();
+				$("#normal_board_under1").empty();
 				normalViewAll("1");
 			},
 			error : function(error) {
@@ -291,6 +304,7 @@
 				if (data.state == "UpdateCheckOk") {
 					console.log("update 완료");
 					$("#jsonId").empty();
+					$("#normal_board_under1").empty();
 					normalViewAll(1);
 				} else if (data.state == "UpdateCheckNo") {
 					console.log("update 실패")
@@ -327,6 +341,7 @@
 			}
 		});
 		$("#jsonId").empty();
+		$("#normal_board_under1").empty();
 		setTimeout("normalViewAll()", 30);
 
 	}
@@ -460,11 +475,14 @@
 				</tr>
 			</thead>
 			<tbody id="jsonId">
-
-
 			</tbody>
 
 		</table>
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-3" id="normal_board_under1"></div>
+
+		</div>
 
 		<!-- Trigger the modal with a button -->
 		<button type="button" class="btn btn-default" onclick="writeView()">글쓰기</button>

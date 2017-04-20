@@ -40,7 +40,8 @@ public class Controller {
 		
 		
 		Map<String, String> data = new HashMap<String, String>();
-		data.put("count", Integer.toString(maxPageNum));
+		data.put("maxPageNum", Integer.toString(maxPageNum));
+		data.put("count", count);
 		return data;
 	}
 	

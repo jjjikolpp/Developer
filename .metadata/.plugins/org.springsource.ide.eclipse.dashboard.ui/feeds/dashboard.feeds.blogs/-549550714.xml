@@ -5,7 +5,59 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2017-04-14T21:33:12Z</updated>
+  <updated>2017-04-18T15:58:48Z</updated>
+  <entry>
+    <title>Spring Framework 4.3.8 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2017/04/18/spring-framework-4-3-8-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>St?phane Nicoll</name>
+    </author>
+    <id>tag:spring.io,2017-04-18:2900</id>
+    <updated>2017-04-18T15:58:48Z</updated>
+    <content type="html">&lt;p&gt;It is my pleasure to announce that Spring Framework &lt;a href="https://jira.spring.io/jira/secure/ReleaseNote.jspa?projectId=10000&amp;version=15892"&gt;4.3.8&lt;/a&gt; &lt;a href="http://projects.spring.io/spring-framework"&gt;is available now&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;This maintenance release is the base for the upcoming Spring Boot 1.4.6 and 1.5.3 maintenance releases and includes 40 fixes and selected improvements.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://projects.spring.io/spring-framework/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework"&gt;GitHub&lt;/a&gt; | &lt;a href="https://jira.spring.io/browse/SPR"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/htmlsingle/"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>This Week in Spring - April 18th, 2017</title>
+    <link rel="alternate" href="https://spring.io/blog/2017/04/18/this-week-in-spring-april-18th-2017" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2017-04-18:2901</id>
+    <updated>2017-04-18T15:08:00Z</updated>
+    <content type="html">&lt;p&gt;Hi Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! This week I&amp;rsquo;m in Atlanta, GA, at &lt;a href="https://www.devopsdays.org/events/2017-atlanta/speakers/josh-long/"&gt;DevOps Days Atlanta&lt;/a&gt;, and Boston for the &lt;a href="https://www.agilealliance.org/agile-alliance-technical-conference-2017/"&gt;Agile Tech Alliance conference&lt;/a&gt;. If you&amp;rsquo;re around for either I&amp;rsquo;d love to see you - &lt;a href="http://twitter.com/starbuxman"&gt;say hi&lt;/a&gt;! &lt;/p&gt;
+&lt;p&gt;Don&amp;rsquo;t miss me, Spring Team members, and community speakers at the upcoming Spring Days &lt;a href="https://www.springdays.io/ehome/spring-days/chicago"&gt;Chicago&lt;/a&gt;, &lt;a href="https://www.springdays.io/ehome/spring-days/new-york"&gt;New York&lt;/a&gt; and &lt;a href="https://www.springdays.io/ehome/spring-days/atlanta"&gt;Atlanta&lt;/a&gt; events!&lt;/p&gt;
+&lt;p&gt;As usual, we&amp;rsquo;ve got a lot to cover so let&amp;rsquo;s get to it!&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;The WebFlux functional reactive support in Spring Framework 5.0 is really catching on! I particularly enjoyed this post called &lt;a href="http://blog.alexnesterov.com/post/spring-your-next-microframework/"&gt;&lt;em&gt;Spring: Your Next Microframework&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Baeldung has a great post introducing &lt;a href="http://www.baeldung.com/spring-5-functional-web"&gt;WebFlux Functional Reactive Endpoints&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Jonathan Borenstein put together a simple demonstration &lt;a href="https://github.com/jonathanborenstein/reactive-demo"&gt;looking at building functional REST services with Spring Framework 5.0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Hurray! &lt;a href="https://spring.io/blog/2017/04/12/spring-cloud-dalston-released"&gt;The Spring Cloud Dalston release is now GA!&lt;/a&gt; Get the bits and try it out! This release is &lt;em&gt;packed&lt;/em&gt; with great new stuff!&lt;/li&gt;
+  &lt;li&gt;Spring Cloud Task ninja Glenn Renfro &lt;a href="https://spring.io/blog/2017/04/14/spring-cloud-task-1-2-0-rc1-is-now-available"&gt;just announced Spring Cloud Task 1.2.0.RC1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Cloud Stream lead Marius Bogoevici &lt;a href="https://spring.io/blog/2017/04/13/spring-cloud-stream-chelsea-goes-ga"&gt;just announced Spring Cloud Stream Chelsea GA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Data lead &lt;a href="https://spring.io/blog/2017/04/13/spring-data-kay-m2-released"&gt;Oliver Gierke just announced Spring Data Kay M2&lt;/a&gt; with &lt;em&gt;lots&lt;/em&gt; of improvements and bugfixes! Get it while it&amp;rsquo;s hot!&lt;/li&gt;
+  &lt;li&gt;last week I concluded &lt;a href="https://spring.io/blog/2017/04/12/spring-tips-season-2-recap"&gt;season 2 of the Spring Tips series&lt;/a&gt;. Read on for a review of the installments from the last 11 episodes and more!&lt;/li&gt;
+  &lt;li&gt;Spring Cloud Vault lead &lt;a href="https://spring.io/blog/2017/04/12/spring-vault-1-0-goes-ga"&gt;Mark Paluch just announced Spring Cloud Vault 1.0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;I did a podcast with my buddy and colleague &lt;a href="http://www.cote.show/23"&gt;Michael Cot?&lt;/a&gt; on &lt;a href="http://www.cote.show/23"&gt;enabling microservices with devops&lt;/a&gt;. Or something.&lt;/li&gt;
+  &lt;li&gt;periodic reminder that &lt;a href="http://sdkman.io/sdks.html"&gt;SDKMAN!&lt;/a&gt; is awesome and you can use it to install Spring Boot: &lt;code&gt;sdk install springboot&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Using the JVM? (I sure hope so!) You might care about &lt;a href="https://stuartmarks.wordpress.com/2017/04/17/deprecation-of-object-finalize/"&gt;the discussion of the deprecation of &lt;code&gt;java.lang.Object#finalize&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Tangent: ZeroTurnaround put out a great &lt;a href="https://zeroturnaround.com/rebellabs/git-commands-and-best-practices-cheat-sheet/"&gt;&lt;em&gt;cheat sheet&lt;/em&gt; covering some tips-and-tricks with &lt;code&gt;git&lt;/code&gt; last year&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;the Java Pub House podcast has a nice interview &lt;a href="http://www.javapubhouse.com/2017/04/episode-64-oh-its-time-to-re-boot.html"&gt;with Spring Batch and Spring Cloud Task lead Michael Minella&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;¨©ukasz Monkiewicz put together a nice post &lt;a href="https://lmonkiewicz.com/programming/get-noticed-2017/spring-boot-rest-request-validation/"&gt;on request validation with Spring Boot&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Friendly remminder: the goal behind microservices, cloud-computing, agile and everything else you&amp;rsquo;ll hear Pivotal talking about is, ultimately, to get &lt;a href="https://technologyconversations.com/2017/03/06/the-ten-commandments-of-continuous-delivery/"&gt;to continuous delivery, some of the tenants of which are nicely explained here&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Lars Trieloff, from Adobe, put together a very cool post discussing the paradigm shift in REST vs technologies like webhooks, where you&amp;rsquo;re still doing REST but they become more &lt;a href="https://medium.com/adobe-io/what-event-based-architectures-mean-for-application-integration-662932169d28"&gt;like topics in a messaging architecture&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;I love this post, &lt;a href="https://www.robfox.io/2017/04/17/rabbitmq-alternative-service-bus-windows-server/"&gt;&lt;em&gt;RabbitMQ: My Alternative ServiceBus for Windows Server&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Speaking of RabbitMQ: have you seen &lt;a href="http://www.rabbitmq.com/"&gt;the new RabbitMQ website? It&amp;rsquo;s dynamite!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Pivotal Cloud Foundry now &lt;a href="https://content.pivotal.io/blog/apps-that-depend-on-file-storage-bring-em-over-to-pivotal-cloud-foundry"&gt;has built-in support for durable persistence&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;I liked this writeup of Neoj chief scientist Jim Webber&amp;rsquo;s introduction &lt;a href="https://www.infoq.com/news/2017/04/causal-consistency-neo4j"&gt;to how Neo4j achieves cluster consensus&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;The Cloud Technology Partners podcast had a great interview with Pivotal&amp;rsquo;s &lt;a href="https://www.cloudtp.com/doppler/best-practices/whats-new-cloud-foundry-pivotal/"&gt;Richard Seroter looking at the future of Cloud Foundry&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;JaxEnter has a great German-language survey on microservices trend](&lt;a href="https://jaxenter.de/microservices-trends-55937"&gt;https://jaxenter.de/microservices-trends-55937&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Baeldung also has a great post on using &lt;a href="http://www.baeldung.com/spring-boot-jsoncomponent"&gt;the &lt;code&gt;@JsonComponent&lt;/code&gt; annotation with Spring Boot&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+  </entry>
   <entry>
     <title>Spring Cloud Task 1.2.0.RC1 is now available</title>
     <link rel="alternate" href="https://spring.io/blog/2017/04/14/spring-cloud-task-1-2-0-rc1-is-now-available" />
@@ -705,69 +757,5 @@ apply plugin: &amp;#39;io.spring.dependency-management&amp;#39;
 &lt;p&gt;Favoring Spring Boot over the traditional Spring framework comes at a cost, you have to let Boot be in control and it might hurt when you decide to get back in the driving seat. &lt;/p&gt;
 &lt;p&gt;Come to this 60 minute webinar and discover how auto-configuration and the different flavors of conditionals work through the creation of a Spring Boot starter. You¡¯ll come away with an understanding of Spring Boot internals, how to debug better, and be able to develop your own starter.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://info.pivotal.io/Fq0UN008X0I00230000JCA0"&gt;Register now!&lt;/a&gt;&lt;br/&gt;North America&lt;br/&gt;Thursday, April 13&lt;br/&gt;9:00am PDT / 10:00am EDT / 16:00:00 UTC-7 hours &lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Reactor Kotlin Extensions 1.0.0.M1 released</title>
-    <link rel="alternate" href="https://spring.io/blog/2017/03/28/reactor-kotlin-extensions-1-0-0-m1-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>S?bastien Deleuze</name>
-    </author>
-    <id>tag:spring.io,2017-03-28:2881</id>
-    <updated>2017-03-28T12:54:28Z</updated>
-    <content type="html">&lt;p&gt;I am excited to announce the release of the first milestone of &lt;a href="https://github.com/reactor/reactor-kotlin-extensions"&gt;Reactor Kotlin Extensions&lt;/a&gt;, which provides Kotlin extensions for Reactor API.&lt;/p&gt;
-&lt;p&gt;It provides support for Kotlin types like &lt;code&gt;KClass&lt;/code&gt;, takes advantage of Kotlin &lt;a href="http://kotlinlang.org/docs/reference/inline-functions.html#reified-type-parameters"&gt;reified type parameters&lt;/a&gt; and provide various extensions to allow more expressive code. You can see bellow a quick comparaison of Reactor with Java versus Reactor with Kotlin + extensions.&lt;/p&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Java &lt;/th&gt;
-      &lt;th&gt;Kotlin with extensions &lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code&gt;Mono.just(&amp;quot;foo&amp;quot;)&lt;/code&gt; &lt;/td&gt;
-      &lt;td&gt;&lt;code&gt;&amp;quot;foo&amp;quot;.toMono()&lt;/code&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code&gt;Flux.fromIterable(list)&lt;/code&gt; &lt;/td&gt;
-      &lt;td&gt;&lt;code&gt;list.toFlux()&lt;/code&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code&gt;Mono.error(new RuntimeException())&lt;/code&gt; &lt;/td&gt;
-      &lt;td&gt;&lt;code&gt;RuntimeException().toMono()&lt;/code&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code&gt;Flux.error(new RuntimeException())&lt;/code&gt; &lt;/td&gt;
-      &lt;td&gt;&lt;code&gt;RuntimeException().toFlux()&lt;/code&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code&gt;flux.ofType(Foo.class)&lt;/code&gt; &lt;/td&gt;
-      &lt;td&gt;&lt;code&gt;flux.ofType&amp;lt;Foo&amp;gt;()&lt;/code&gt; or &lt;code&gt;flux.ofType(Foo::class)&lt;/code&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code&gt;StepVerifier.create(flux).verifyComplete()&lt;/code&gt; &lt;/td&gt;
-      &lt;td&gt;&lt;code&gt;flux.test().verifyComplete()&lt;/code&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;To use it in your project, add &lt;code&gt;https://repo.spring.io/milestone&lt;/code&gt; repository and &lt;code&gt;io.projectreactor:reactor-kotlin-extensions:1.0.0.M1&lt;/code&gt; dependency.&lt;/p&gt;
-&lt;p&gt;This is the very first milestone, so feel free to create issues and submit pull requests on &lt;a href="https://github.com/reactor/reactor-kotlin-extensions"&gt;reactor-kotlin-extensions&lt;/a&gt; GitHub project.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring REST Docs 1.2.0.RC1</title>
-    <link rel="alternate" href="https://spring.io/blog/2017/03/24/spring-rest-docs-1-2-0-rc1" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Andy Wilkinson</name>
-    </author>
-    <id>tag:spring.io,2017-03-24:2880</id>
-    <updated>2017-03-24T15:32:56Z</updated>
-    <content type="html">&lt;p&gt;On behalf of everyone who contributed, it&amp;rsquo;s my pleasure to announce that Spring REST Docs 1.2.0.RC1 has been released and is available from &lt;a href="https://repo.spring.io/milestone/"&gt;https://repo.spring.io/milestone/&lt;/a&gt;.&lt;/p&gt;&lt;h1&gt;&lt;a href="#what-rsquo-s-new" class="anchor" name="what-rsquo-s-new"&gt;&lt;/a&gt;What&amp;rsquo;s new?&lt;/h1&gt;
-&lt;p&gt;A complete overview of what&amp;rsquo;s new in 1.2 can be found in the &lt;a href="https://github.com/spring-projects/spring-restdocs/wiki/Spring-REST-Docs-1.2-Release-Notes"&gt;release notes&lt;/a&gt;. The following are some of the highlights.&lt;/p&gt;&lt;h2&gt;&lt;a href="#improved-asciidoctor-integration" class="anchor" name="improved-asciidoctor-integration"&gt;&lt;/a&gt;Improved Asciidoctor integration&lt;/h2&gt;
-&lt;p&gt;REST Docs now has a new module, &lt;code&gt;spring-restdocs-asciidoctor&lt;/code&gt;, that makes it easier to use the generated snippets in your documentation. A &lt;a href="http://docs.spring.io/spring-restdocs/docs/1.2.0.RC1/reference/html5/#working-with-asciidoctor-including-snippets-operation"&gt;new macro&lt;/a&gt; means that you can import multiple snippets for the same operation in a single line. &lt;a href="https://github.com/spring-projects/spring-restdocs/commit/58bf231c8a422ece52dc6a9af007c543b009e522"&gt;This update to the samples&lt;/a&gt; shows the benefit of adopting the macro. &lt;/p&gt;&lt;h2&gt;&lt;a href="#better-support-for-documenting-large-and-complex-payloads" class="anchor" name="better-support-for-documenting-large-and-complex-payloads"&gt;&lt;/a&gt;Better support for documenting large and complex payloads&lt;/h2&gt;
-&lt;p&gt;To help to make your documentation easier to consume, the documentation of large and complex payloads can now be split up. Subsections of the payloads can be documented individually allowing your documentation to guide your users through the pieces that matter.&lt;/p&gt;&lt;h2&gt;&lt;a href="#snippets-for-request-and-response-bodies" class="anchor" name="snippets-for-request-and-response-bodies"&gt;&lt;/a&gt;Snippets for request and response bodies&lt;/h2&gt;
-&lt;p&gt;Snippets that document the body of a request or response are now included in the default snippets. You can also use these snippets explicitly to document a subsection of a large or complex body.&lt;/p&gt;&lt;h1&gt;&lt;a href="#what-rsquo-s-next" class="anchor" name="what-rsquo-s-next"&gt;&lt;/a&gt;What&amp;rsquo;s next?&lt;/h1&gt;
-&lt;p&gt;We&amp;rsquo;re hoping to publish a release in a few weeks&amp;rsquo; time. Please take the release candidate for a spin and &lt;a href="https://github.com/spring-projects/spring-restdocs/issues/new"&gt;let us know&lt;/a&gt; if you find any problems or if you have a suggestion for some last-minute improvements.&lt;/p&gt;</content>
   </entry>
 </feed>
