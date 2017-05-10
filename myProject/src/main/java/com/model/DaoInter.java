@@ -2,6 +2,7 @@ package com.model;
 
 import java.util.List;
 
+
 import org.springframework.dao.DataAccessException;
 
 public interface DaoInter {
@@ -13,5 +14,6 @@ public interface DaoInter {
 	boolean NormalDelete(String no)throws DataAccessException;
 	
 	String NormalCount()throws DataAccessException;	
+	List<Normal_Board_Dto> NormalSearch(String title, String re)throws DataAccessException;
 	
 }

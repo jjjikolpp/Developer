@@ -1331,3 +1331,42 @@
 4월 20, 2017 11:18:44.11 [8820:8248:0420/111844.113:ERROR:content_settings_pref.cc(469)] Invalid pattern strings: ,http://wow.inven.co.kr:80
 4월 20, 2017 11:18:44.12 [8820:8248:0420/111844.113:ERROR:content_settings_pref.cc(295)] Invalid pattern strings: ,http://wow.inven.co.kr:80
 4월 20, 2017 11:18:44.32 [1224:14472:0420/111844.319:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+
+4월 26, 2017 21:22:45.05 NEW SESSION
+4월 26, 2017 21:22:45.05 [16388:10580:0426/212245.055:ERROR:content_settings_pref.cc(469)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 26, 2017 21:22:45.06 [16388:10580:0426/212245.055:ERROR:content_settings_pref.cc(295)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 26, 2017 21:22:45.27 [12620:15944:0426/212245.270:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+4월 26, 2017 21:31:36.57 [15416:13092:0426/213136.575:ERROR:content_settings_pref.cc(469)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 26, 2017 21:31:36.57 [15416:13092:0426/213136.576:ERROR:content_settings_pref.cc(295)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 26, 2017 21:31:36.81 [12472:12180:0426/213136.815:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+4월 26, 2017 21:58:21.74 [10244:16848:0426/215821.744:ERROR:content_settings_pref.cc(469)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 26, 2017 21:58:21.74 [10244:16848:0426/215821.745:ERROR:content_settings_pref.cc(295)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 26, 2017 21:58:21.93 [4944:12412:0426/215821.932:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+4월 26, 2017 22:04:01.66 A Parser-blocking, cross site (i.e. different eTLD+1) script, http://www.googletagservices.com/tag/js/gpt.js, is invoked via document.write. This MAY be blocked by the browser in this or a future page load due to poor network connectivity. If blocked in this page load, it will be confirmed in a subsequent console message.See https://www.chromestatus.com/feature/5718547946799104 for more details.
+4월 26, 2017 22:04:01.66 A Parser-blocking, cross site (i.e. different eTLD+1) script, http://www.googletagservices.com/tag/js/gpt.js, is invoked via document.write. This MAY be blocked by the browser in this or a future page load due to poor network connectivity. If blocked in this page load, it will be confirmed in a subsequent console message.See https://www.chromestatus.com/feature/5718547946799104 for more details.
+4월 26, 2017 22:04:01.66 A Parser-blocking, cross site (i.e. different eTLD+1) script, https://securepubads.g.doubleclick.net/gpt/pubads_impl_114.js, is invoked via document.write. This MAY be blocked by the browser in this or a future page load due to poor network connectivity. If blocked in this page load, it will be confirmed in a subsequent console message.See https://www.chromestatus.com/feature/5718547946799104 for more details.
+4월 26, 2017 22:04:01.66 A Parser-blocking, cross site (i.e. different eTLD+1) script, https://securepubads.g.doubleclick.net/gpt/pubads_impl_114.js, is invoked via document.write. This MAY be blocked by the browser in this or a future page load due to poor network connectivity. If blocked in this page load, it will be confirmed in a subsequent console message.See https://www.chromestatus.com/feature/5718547946799104 for more details.
+4월 26, 2017 22:04:01.66 A Parser-blocking, cross site (i.e. different eTLD+1) script, https://securepubads.g.doubleclick.net/gampad/ads?gdfp_req=1&correlator=115194855903582&output=json_html&callback=googletag.impl.pubads.setAdContentsBySlotForSync&impl=ss&json_a=1&eid=108809080&sc=0&sfv=1-0-8&iu_parts=37832843%2Cegloos_m_post_top_320x50%2Cegloos_m_post_bottom_320x50&enc_prev_ius=%2F0%2F1%2C%2F0%2F2&prev_iu_szs=320x50%2C320x50&cookie_enabled=1&lmt=1493211841&dt=1493211841227&cc=100&frm=20&biw=1600&bih=770&oid=3&adxs=0%2C-9&adys=0%2C-9&adks=3781574857%2C4030161180&gut=v2&ifi=1&u_tz=540&u_his=3&u_h=900&u_w=1600&u_ah=860&u_aw=1600&u_cd=24&u_nplug=5&u_nmime=7&u_sd=1&flash=25.0.0&url=http%3A%2F%2Ftobby48.egloos.com%2Fm%2F2169745&ref=https%3A%2F%2Fwww.google.co.kr%2F&dssz=7&icsg=10&std=0&csl=114&vrg=114&vrp=114&ga_vid=714329794.1493211841&ga_sid=1493211841&ga_hid=765184908, is invoked via document.write. This MAY be blocked by the browser in this or a future page load due to poor network connectivity. If blocked in this page load, it will be confirmed in a subsequent console message.See https://www.chromestatus.com/feature/5718547946799104 for more details.
+4월 26, 2017 22:04:01.66 A Parser-blocking, cross site (i.e. different eTLD+1) script, https://securepubads.g.doubleclick.net/gampad/ads?gdfp_req=1&correlator=115194855903582&output=json_html&callback=googletag.impl.pubads.setAdContentsBySlotForSync&impl=ss&json_a=1&eid=108809080&sc=0&sfv=1-0-8&iu_parts=37832843%2Cegloos_m_post_top_320x50%2Cegloos_m_post_bottom_320x50&enc_prev_ius=%2F0%2F1%2C%2F0%2F2&prev_iu_szs=320x50%2C320x50&cookie_enabled=1&lmt=1493211841&dt=1493211841227&cc=100&frm=20&biw=1600&bih=770&oid=3&adxs=0%2C-9&adys=0%2C-9&adks=3781574857%2C4030161180&gut=v2&ifi=1&u_tz=540&u_his=3&u_h=900&u_w=1600&u_ah=860&u_aw=1600&u_cd=24&u_nplug=5&u_nmime=7&u_sd=1&flash=25.0.0&url=http%3A%2F%2Ftobby48.egloos.com%2Fm%2F2169745&ref=https%3A%2F%2Fwww.google.co.kr%2F&dssz=7&icsg=10&std=0&csl=114&vrg=114&vrp=114&ga_vid=714329794.1493211841&ga_sid=1493211841&ga_hid=765184908, is invoked via document.write. This MAY be blocked by the browser in this or a future page load due to poor network connectivity. If blocked in this page load, it will be confirmed in a subsequent console message.See https://www.chromestatus.com/feature/5718547946799104 for more details.
+4월 26, 2017 22:04:41.25 A Parser-blocking, cross site (i.e. different eTLD+1) script, https://tpc.googlesyndication.com/pagead/js/r20170419/r20110914/activeview/osd_listener.js, is invoked via document.[WARNING:..\..\..\..\flash\platform\pepper\pep_module.cpp(63)] SANDBOXED
+4월 26, 2017 22:32:37.19 [4944:15636:0426/223237.190:ERROR:gpu_watchdog_thread.cc(373)] The GPU process hung. Terminating after 15000 ms.
+4월 26, 2017 22:32:37.47 [10244:16848:0426/223237.475:ERROR:gpu_process_transport_factory.cc(889)] Lost UI shared context.
+4월 26, 2017 22:32:37.61 [10400:16468:0426/223237.615:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+
+4월 27, 2017 03:19:02.70 NEW SESSION
+4월 27, 2017 03:19:02.70 [5596:14004:0427/031902.699:ERROR:content_settings_pref.cc(469)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 27, 2017 03:19:02.70 [5596:14004:0427/031902.699:ERROR:content_settings_pref.cc(295)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 27, 2017 03:19:02.90 [17008:12544:0427/031902.905:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+4월 27, 2017 04:04:04.99 [9180:14940:0427/040404.996:ERROR:content_settings_pref.cc(469)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 27, 2017 04:04:04.99 [9180:14940:0427/040404.996:ERROR:content_settings_pref.cc(295)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 27, 2017 04:04:05.18 [6920:14080:0427/040405.182:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+
+4월 29, 2017 22:33:52.60 NEW SESSION
+4월 29, 2017 22:33:52.60 [4200:200:0429/223352.601:ERROR:content_settings_pref.cc(469)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 29, 2017 22:33:52.62 [4200:200:0429/223352.601:ERROR:content_settings_pref.cc(295)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 29, 2017 22:33:52.85 [7352:13240:0429/223352.850:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+
+4월 30, 2017 21:44:21.26 NEW SESSION
+4월 30, 2017 21:44:21.26 [3472:4888:0430/214421.266:ERROR:content_settings_pref.cc(469)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 30, 2017 21:44:21.27 [3472:4888:0430/214421.268:ERROR:content_settings_pref.cc(295)] Invalid pattern strings: ,http://wow.inven.co.kr:80
+4월 30, 2017 21:44:21.46 [13648:13836:0430/214421.459:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain

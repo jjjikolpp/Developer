@@ -28,6 +28,9 @@
   .normal_board {
   	font-size : 18px;
   }
+  .small_font{
+  	font-size: 15px;
+  }
   p {font-size: 16px;}
   .margin {margin-bottom: 45px;}
   .bg-1 { 

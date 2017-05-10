@@ -2,30 +2,30 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="empty" key="selection"/>
+		<item value="ajax" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="empty"/>
-			<item value="normal_board_under"/>
-			<item value="검색"/>
-			<item value="ㄴㄴㄴ"/>
-			<item value="align"/>
-			<item value="style"/>
-			<item value="Mth"/>
-			<item value="작업중"/>
+			<item value="ajax"/>
+			<item value="onclick"/>
+			<item value="jquery"/>
+			<item value="search("/>
+			<item value="이상"/>
+			<item value="더 이상"/>
+			<item value="count("/>
+			<item value="countNo"/>
 		</list>
 		<list key="replacehistory">
+			<item value="normalViewAll("/>
+			<item value="영돈"/>
 			<item value="normal_board_under1"/>
 			<item value="normal_board_under"/>
 			<item value="Math"/>
 			<item value="countNo"/>
 			<item value="maxPageNum"/>
 			<item value="insertTex"/>
-			<item value="insertTit"/>
-			<item value="insertWri"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

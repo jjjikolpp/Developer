@@ -18,36 +18,20 @@
 	var countNo;
 
 	//$(document).ready(normalViewAll());
-	$(document).ready(count(1));
-	function count(pageNo){
-		
-		console.log("pageNo : " +  pageNo);
-		$.ajax({
+	$(document).ready(
+			$(".search input[type=text]").keypress(function(e) { 
 
-			type : "get",
-			url : "normal_count",
-			dataType : "json",
-			data : {pageNo : pageNo},
-			success : function(data) {
-				maxPageNum = data.maxPageNum;
-				countNo = data.count;
-				
-			},
-			error : function(error) {
-				console.log("normal_count err");
-			}
-		});
-		setTimeout( () => {
-		normalViewAll(pageNo);
-			
-		}, 20);
-	}
+			    if (e.keyCode == 13){
+			        search()
+			    }    
+			}),
+			normalViewAll(1)
+	);
+	
 	
 	function normalViewAll(pageNo) {
 		$("#jsonId").empty();
 		$("#normal_board_under1").empty();
-		
-
 		$.ajax({
 
 			type : "get",
@@ -73,17 +57,21 @@
 									+ '<a>' + '</td>';
 							str += '</tr>';
 						});
-				$("#jsonId").append(str) 
+				$("#jsonId").append(str);
+				countNo = list[0].n_count;
+				maxPageNum = list[0].maxPageNum
+				console.log(countNo);
+				
 				
 				str = '';
-				// 여기 는 페이징
+				
 				if (maxPageNum <= 10) {
 					
 					for (var a = 1; a <= maxPageNum; a++) {
 						if (a  == pageNo) {
 							str += a + "&nbsp";
 						}else{
-							str += '<a href="#" onclick="count('+ a + ')">' + a + '</a>' + '&nbsp';
+							str += '<a href="#" onclick="normalViewAll('+ a + ')">' + a + '</a>' + '&nbsp';
 						}	
 					}
 				}else if(maxPageNum > 10){
@@ -98,15 +86,15 @@
 							if (a  == pageNo) {
 								str += a + "&nbsp";
 							}else{
-								str += '<a href="#" onclick="count('+ a + ')">' + a + '</a>' + '&nbsp';
+								str += '<a href="#" onclick="normalViewAll('+ a + ')">' + a + '</a>' + '&nbsp';
 							}	
 						}
-						str += '<a href="#" onclick="count('+(pageNo + 1)+')">></a>' ;
+						str += '<a href="#" onclick="normalViewAll('+(pageNo + 1)+')">></a>' ;
 					
 					}else if(pageSave != 1){
 						
-						str += '<a href="#" onclick="count('+(pageNo - 1)+')"><</a>' ;	
-						if (pageSave != Math.ceil((countNo/3)/10)) {
+						str += '<a href="#" onclick="normalViewAll('+(pageNo - 1)+')"><</a>' ;	
+						if (pageSave != Math.ceil((countNo/3) /10)) {
 						
 						for (var a = 1; a <= 10; a++) {
 							var checkNum = (pageSave-1).toString() + a;
@@ -119,13 +107,13 @@
 								}
 							}else{
 								if (a != 10) {
-									str += '<a href="#" onclick="count('+ checkNum + ')">' + checkNum + '</a>' + '&nbsp';
+									str += '<a href="#" onclick="normalViewAll('+ checkNum + ')">' + checkNum + '</a>' + '&nbsp';
 								}else{
-									str += '<a href="#" onclick="count('+ pageSave * 10 + ')">' + pageSave * 10 + '</a>' + '&nbsp';
+									str += '<a href="#" onclick="normalViewAll('+ pageSave * 10 + ')">' + pageSave * 10 + '</a>' + '&nbsp';
 								}
 							}		
 						}	
-						} // 작업중
+						}
 						
 						if (pageSave == Math.ceil((countNo/3)/10)) {
 							var ccc =  Math.ceil(countNo/3) - 10 * (pageSave -1);
@@ -140,20 +128,19 @@
 									}
 								}else{
 									if (a != 10) {
-										str += '<a href="#" onclick="count('+ checkNum + ')">' + checkNum + '</a>' + '&nbsp';
+										str += '<a href="#" onclick="normalViewAll('+ checkNum + ')">' + checkNum + '</a>' + '&nbsp';
 									}else{
-										str += '<a href="#" onclick="count('+ pageSave * 10 + ')">' + pageSave * 10 + '</a>' + '&nbsp';
-									}
-									
+										str += '<a href="#" onclick="normalViewAll('+ pageSave * 10 + ')">' + pageSave * 10 + '</a>' + '&nbsp';
+									}		
 								}
 							}
-							console.log("더이상의 페이지 없음 : " + ccc);
 						}else{
-							str += '<a href="#" onclick="count('+(pageNo + 1)+')">></a>';							
+							str += '<a href="#" onclick="normalViewAll('+(pageNo + 1)+')">></a>';							
 						}
 					}
 				}
-				str += "</div>"; 
+				str += "</div>";
+				// 영돈
 				
 				$("#normal_board_under1").append(str);
 			},
@@ -217,7 +204,7 @@
 						str += '<button type="button" class="close" data-dismiss="modal">&times;</button>';
 						
 						str += '<div class="col-sm-9">';
-						str += '<h4 class="modal-title">' + n_no + '번글</h4>'; // 1번호 작업
+						str += '<h4 class="modal-title">' + n_no + '번글</h4>'; 
 						str += '</div>';
 						str += '<div class="col-sm-9" id="insertWriter">';
 						str += '글쓴이 : ' + jsonData.n_writer;
@@ -247,7 +234,7 @@
 
 						$("#modalFooter").html(str);
 
-						//modal을 띄워준다.  
+						//modal을 띄워준다.
 
 						$("#myModal").modal('show');
 
@@ -358,7 +345,7 @@
     }
 
 
-	function insertCheck(state) { // 여기하는중
+	function insertCheck(state) { 
 		//alert(getTextLength($("#insertWriter").val()));
 		if ($.trim($("#insertWriter").val()) == "") {
 			str = "";
@@ -461,12 +448,20 @@
 		$("#myModal").modal('show');
 
 	}
+	function selectEvent(selectObj) {
+		alert(selectObj.value + "가 선택 되었습니다.");
+	}
+	
+	function search(){
+		
+	}
+	
+
 </script>
 <body>
 	<div class="container bg-3 normal_board">
 		<table class="table">
 			<thead>
-				<!-- 작업2중 -->
 				<tr>
 					<th>글번호</th>
 					<th>작성자</th>
@@ -478,15 +473,31 @@
 			</tbody>
 
 		</table>
-		<div class="row">
-			<div class="col-sm-3"></div>
+		
+		<div class="row">  <!-- 검색 작업중   -->
+			<div class="col-sm-3">
+				<button type="button" class="btn btn-default" onclick="writeView()">글쓰기</button>
+			</div>
 			<div class="col-sm-3" id="normal_board_under1"></div>
-
+			<div class="col-sm-2">
+				<div class="form-group">
+					<select class="form-control input-sm"id="sel1" onChange="javascript:selectEvent(this)">
+						<option class="small_font" value="제목">제목</option>
+						<option class="small_font" value="내용">내용</option>
+						<option class="small_font" value="작성자">작성자</option>
+						<option class="small_font" value="글번호">글번호</option> 
+					</select>
+				</div>
+				
+			</div>
+			<div class="col-sm-2">
+				<div class="dddd search">
+					<input class="form-control" type="text">
+				</div>
+			</div>
+			<div class="col-sm-2"><button type="button" class="btn btn-default" onclick="search()">검색</button></div>
 		</div>
-
-		<!-- Trigger the modal with a button -->
-		<button type="button" class="btn btn-default" onclick="writeView()">글쓰기</button>
-
+		
 		<!-- Modal -->
 		<div id="myModal" class="modal fade" role="dialog">
 			<div class="modal-dialog">
