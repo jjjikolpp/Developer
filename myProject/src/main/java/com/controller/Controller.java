@@ -1,13 +1,18 @@
 package com.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -167,6 +172,24 @@ public class Controller {
 		System.out.println(list.get(0).getN_context());
 		// 검색 목록이랑  //  검색값 받고 넘기기 작업
 		return null;
+	}
+	
+	
+	public void sessionTest(){
+		System.out.println("aaa");
+		HttpSession session = null;
+		session.setAttribute("id", "hi");
+		System.out.println("bbb");
+		String hi = (String) session.getAttribute("id");
+		System.out.println(hi);
+		System.out.println("ccc");
+	}
+	
+	@RequestMapping("sessionTest")
+	protected void doGet(HttpServletRequest requset, HttpServletResponse response) throws ServletException,IOException{
+		HttpSession session = requset.getSession();
+		session.setAttribute("id", "userName");
+		System.out.println(session.getAttribute("id"));
 	}
 
 }
