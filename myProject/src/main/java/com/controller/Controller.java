@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.model.AnnoInter;
 import com.model.DaoInter;
@@ -92,8 +93,8 @@ public class Controller {
 	@RequestMapping(value = "insertOk", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> insertOk(@RequestParam("writer") String writer, @RequestParam("title") String title,
-			@RequestParam("context") String context) {// title context 받아야함
-														// jquery
+			@RequestParam("context") String context) {
+														
 		Normal_Board_Bean bean = new Normal_Board_Bean();
 		bean.setTitle(title);
 		bean.setWriter(writer);
@@ -174,6 +175,12 @@ public class Controller {
 		return null;
 	}
 	
+	@RequestMapping("login")
+	public ModelAndView login(){
+		
+		
+		return null;
+	}
 	
 	public void sessionTest(){
 		System.out.println("aaa");
