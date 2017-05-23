@@ -17,6 +17,10 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+	function LoginFunc(){
+		alert("dd")
+	}
+	
 	function normalBoard() {
 		$("#First_Container").empty();
 		$("#First_Container").load("include_normal_board.jsp");
@@ -134,6 +138,13 @@ p {
 				pw  :
 				</div>
 				<div class="col-sm-2"><input type="text" class="form-control" id="usr"></div>
+			</div>
+			<div class="row">
+				<div class="col-sm-5"></div>
+				<div class="col-sm-2">
+					<button type="button" class="btn btn-default btn-mg" onclick="LoginFunc()">Login</button>
+					<button type="button" class="btn btn-default btn-mg" onclick="SignUpFunc()">Sign Up</button>
+				</div>
 			</div>
 		</div>
 	</div>
