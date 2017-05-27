@@ -143,7 +143,7 @@ p {
 				<div class="col-sm-5"></div>
 				<div class="col-sm-2">
 					<button type="button" class="btn btn-default btn-mg" onclick="LoginFunc()">Login</button>
-					<button type="button" class="btn btn-default btn-mg" onclick="SignUpFunc()">Sign Up</button>
+					<button type="button" class="btn btn-default btn-mg" href="signUpView">Sign Up</button>
 				</div>
 			</div>
 		</div>

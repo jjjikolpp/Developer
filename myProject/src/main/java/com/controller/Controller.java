@@ -199,4 +199,10 @@ public class Controller {
 		System.out.println(session.getAttribute("id"));
 	}
 
+	@RequestMapping("signUpView")
+	public ModelAndView signUp(){
+		ModelAndView view = new ModelAndView();
+		view.setViewName("signUpView");
+		return view;
+	}
 }
