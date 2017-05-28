@@ -201,8 +201,9 @@ public class Controller {
 
 	@RequestMapping("signUpView")
 	public ModelAndView signUp(){
-		ModelAndView view = new ModelAndView();
-		view.setViewName("signUpView");
-		return view;
+		System.out.println("ss");
+//		ModelAndView view = new ModelAndView();
+//		view.setViewName("signUpView");
+		return new ModelAndView("signUpView");
 	}
 }

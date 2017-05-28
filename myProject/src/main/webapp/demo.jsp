@@ -8,17 +8,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat"
-	rel="stylesheet">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-	function LoginFunc(){
-		alert("dd")
+	function signUpView(){
+		
 	}
 	
 	function normalBoard() {
@@ -26,7 +22,7 @@
 		$("#First_Container").load("include_normal_board.jsp");
 	}
 	function scrollBoard() {
-
+		
 	}
 </script>
 <style>
@@ -143,7 +139,7 @@ p {
 				<div class="col-sm-5"></div>
 				<div class="col-sm-2">
 					<button type="button" class="btn btn-default btn-mg" onclick="LoginFunc()">Login</button>
-					<button type="button" class="btn btn-default btn-mg" href="signUpView">Sign Up</button>
+					<button type="button" class="btn btn-default btn-mg" onclick="javascript:location.href='signUpView'">Sign Up</button>
 				</div>
 			</div>
 		</div>
