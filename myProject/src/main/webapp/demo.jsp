@@ -13,10 +13,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-	function signUpView(){
-		
+	function SignUpModal(){
+		$("#mainModal").modal('show');
 	}
-	
+	function signUpOk(){
+		alert("dd");
+	}
 	function normalBoard() {
 		$("#First_Container").empty();
 		$("#First_Container").load("include_normal_board.jsp");
@@ -35,7 +37,9 @@ body {
 .normal_board {
 	font-size: 18px;
 }
-
+.modal_color{
+	color: black;
+}
 .small_font {
 	font-size: 15px;
 }
@@ -114,12 +118,12 @@ p {
 
 	<!-- First Container -->
 	<div class="container-fluid bg-1" id="First_Container"
-		style="padding: 10px; height: auto; min-height: 600px; overflow: auto;">
+		style="padding: 10px; height: auto; min-height: 600px;">
 		<div class="text-center">
 			<div class="row">
 				<div class="col-sm-2"></div>
 				<div class="col-sm-8">
-					<h3 class="margin" style="font-style: color">로그인</h3>
+					<h3 class="margin">로그인</h3>
 				</div>
 				<div class="col-sm-2"></div>	
 			</div>
@@ -139,12 +143,11 @@ p {
 				<div class="col-sm-5"></div>
 				<div class="col-sm-2">
 					<button type="button" class="btn btn-default btn-mg" onclick="LoginFunc()">Login</button>
-					<button type="button" class="btn btn-default btn-mg" onclick="javascript:location.href='signUpView'">Sign Up</button>
+					<button type="button" class="btn btn-default btn-mg" onclick="SignUpModal()">Sign Up</button>
 				</div>
 			</div>
 		</div>
 	</div>
-
 	<!-- Second Container -->
 	<div class="container-fluid bg-2 text-center">
 		안녕하세요 저는 작년 6월~11월 까지 acorn 아카데미에서 JAVA 프레임워크기반 프로그래밍 교육을 이수한 김영돈입니다.
@@ -179,6 +182,44 @@ p {
 			<font color="#ccffff">상기 디자인은 w3school 부트스트렙 모델을 참조하였습니다</font>
 		</p>
 	</footer>
+	
+	<div id="mainModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content modal_color">
+					<div class="modal-header" id="modalTitle">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<div class="modal-title"><font color="#blue"> 회원 가입</font></div>
+					</div>
+					<div class="modal-body" id="modalBody" style="text-align: right">
+						
+						<div class="row">
+							<div class="col-sm-3">id : </div>
+							<div class="col-sm-6"><input type="text" class="form-control" id="usr"></div>
+						</div> 
+						<div class="row">
+							<div class="col-sm-3">pwd : </div>
+							<div class="col-sm-6"><input type="text" class="form-control" id="usr"></div>
+						</div> 
+						<div class="row">
+							<div class="col-sm-3">pwd2 : </div>
+							<div class="col-sm-6"><input type="text" class="form-control" id="usr"></div>
+						</div> 
+						<div class="row">
+							<div class="col-sm-3">email : </div>
+							<div class="col-sm-6"><input type="text" class="form-control" id="usr"></div>
+						</div> 
+						
+					</div>
+					<div class="modal-footer" id="modalFooter">
+						<button type="button" onclick="signUpOk();" class="btn btn-default" data-dismiss="modal">작성완료</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
 
 </body>
 </html>
