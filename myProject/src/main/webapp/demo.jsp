@@ -16,6 +16,16 @@
 	function SignUpModal(){
 		$("#mainModal").modal('show');
 	}
+	function signUpCheck(){
+		var id = $("#signUp_id").val();
+		var pwd = $("#signUp_pwd").val();
+		var pwd2 = $("#signUp_pwd2").val();
+		var email = $("#signUp_email").val();
+		
+		if ($.trim(id) = "") {
+			$("#signUp_id")
+		}
+	}
 	function signUpOk(){
 		alert("dd");
 	}
@@ -196,24 +206,24 @@ p {
 						
 						<div class="row">
 							<div class="col-sm-3">id : </div>
-							<div class="col-sm-6"><input type="text" class="form-control" id="usr"></div>
+							<div class="col-sm-6"><input type="text" class="form-control" id="signUp_id"></div>
 						</div> 
 						<div class="row">
 							<div class="col-sm-3">pwd : </div>
-							<div class="col-sm-6"><input type="text" class="form-control" id="usr"></div>
+							<div class="col-sm-6"><input type="text" class="form-control" id="signUp_pwd"></div>
 						</div> 
 						<div class="row">
 							<div class="col-sm-3">pwd2 : </div>
-							<div class="col-sm-6"><input type="text" class="form-control" id="usr"></div>
+							<div class="col-sm-6"><input type="text" class="form-control" id="signUp_pwd2"></div>
 						</div> 
 						<div class="row">
 							<div class="col-sm-3">email : </div>
-							<div class="col-sm-6"><input type="text" class="form-control" id="usr"></div>
+							<div class="col-sm-6"><input type="text" class="form-control" id="signUp_email"></div>
 						</div> 
 						
 					</div>
 					<div class="modal-footer" id="modalFooter">
-						<button type="button" onclick="signUpOk();" class="btn btn-default" data-dismiss="modal">작성완료</button>
+						<button type="button" onclick="signUpCheck();" class="btn btn-default" data-dismiss="modal">작성완료</button>
 						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
 					</div>
 				</div>
