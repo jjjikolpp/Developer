@@ -21,9 +21,14 @@
 		var pwd = $("#signUp_pwd").val();
 		var pwd2 = $("#signUp_pwd2").val();
 		var email = $("#signUp_email").val();
-		
+		//작업중
 		if ($.trim(id) = "") {
-			$("#signUp_id")
+			str = '';
+			str += '<input type="text" class="form-control has-error" id="signUp_id">';
+			//$("#signUp_div_id").addClass("has-error");
+			$('#mainModal').modal({
+				remote : 'modal.html'
+			});
 		}
 	}
 	function signUpOk(){
@@ -205,25 +210,25 @@ p {
 					<div class="modal-body" id="modalBody" style="text-align: right">
 						
 						<div class="row">
-							<div class="col-sm-3">id : </div>
-							<div class="col-sm-6"><input type="text" class="form-control" id="signUp_id"></div>
+							<div class="col-sm-3">id : </div> <!-- 작업중 -->
+							<div class="col-sm-6" id="signUp_div_id"><input type="text" class="form-control" id="signUp_id"></div>
 						</div> 
 						<div class="row">
 							<div class="col-sm-3">pwd : </div>
-							<div class="col-sm-6"><input type="text" class="form-control" id="signUp_pwd"></div>
+							<div class="col-sm-6" id="signUp_div_pwd"><input type="text" class="form-control" id="signUp_pwd"></div>
 						</div> 
 						<div class="row">
 							<div class="col-sm-3">pwd2 : </div>
-							<div class="col-sm-6"><input type="text" class="form-control" id="signUp_pwd2"></div>
+							<div class="col-sm-6" id="signUp_div_pwd2"><input type="text" class="form-control" id="signUp_pwd2"></div>
 						</div> 
 						<div class="row">
 							<div class="col-sm-3">email : </div>
-							<div class="col-sm-6"><input type="text" class="form-control" id="signUp_email"></div>
+							<div class="col-sm-6" id="signUp_div_email"><input type="text" class="form-control" id="signUp_email"></div>
 						</div> 
 						
 					</div>
 					<div class="modal-footer" id="modalFooter">
-						<button type="button" onclick="signUpCheck();" class="btn btn-default" data-dismiss="modal">작성완료</button>
+						<button type="button" onclick="signUpCheck();" class="btn btn-default">작성완료</button>
 						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
 					</div>
 				</div>
