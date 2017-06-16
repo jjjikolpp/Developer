@@ -22,10 +22,12 @@
 		var pwd2 = $("#signUp_pwd2").val();
 		var email = $("#signUp_email").val();
 		//작업중
-		if ($.trim(id) = "") {
-			str = '';
+		alert("dd");
+		if ($.trim($("#signUp_id").val()) = "") {
+			//str = '';
 			str += '<input type="text" class="form-control has-error" id="signUp_id">';
-			//$("#signUp_div_id").addClass("has-error");
+			//$("#howTo").addClass("has-error");
+			$("#howTo").html(str);
 			$('#mainModal').modal({
 				remote : 'modal.html'
 			});
@@ -208,11 +210,10 @@ p {
 						<div class="modal-title"><font color="#blue"> 회원 가입</font></div>
 					</div>
 					<div class="modal-body" id="modalBody" style="text-align: right">
-						
-						<div class="row">
+						<div class="row howTo">
 							<div class="col-sm-3">id : </div> <!-- 작업중 -->
 							<div class="col-sm-6" id="signUp_div_id"><input type="text" class="form-control" id="signUp_id"></div>
-						</div> 
+						</div>
 						<div class="row">
 							<div class="col-sm-3">pwd : </div>
 							<div class="col-sm-6" id="signUp_div_pwd"><input type="text" class="form-control" id="signUp_pwd"></div>
