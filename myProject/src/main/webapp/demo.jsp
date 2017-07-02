@@ -22,16 +22,20 @@
 		var pwd2 = $("#signUp_pwd2").val();
 		var email = $("#signUp_email").val();
 		//작업중
-		alert("dd");
-		if ($.trim($("#signUp_id").val()) = "") {
-			//str = '';
-			str += '<input type="text" class="form-control has-error" id="signUp_id">';
-			//$("#howTo").addClass("has-error");
-			$("#howTo").html(str);
+		
+		alert(id);
+		if ($.trim($("#signUp_id").val()) == "") {
+			$("#signUpTargetId").addClass("has-error");
+			$('#mainModal').modal({
+				remote : 'modal.html'
+			});
+		}else if ($.trim($("#signUp_id").val()) != "") {
+			$("#signUpTargetId").removeClass("has-error");
 			$('#mainModal').modal({
 				remote : 'modal.html'
 			});
 		}
+		
 	}
 	function signUpOk(){
 		alert("dd");
@@ -210,7 +214,7 @@ p {
 						<div class="modal-title"><font color="#blue"> 회원 가입</font></div>
 					</div>
 					<div class="modal-body" id="modalBody" style="text-align: right">
-						<div class="row howTo">
+						<div class="row" id="signUpTargetId">
 							<div class="col-sm-3">id : </div> <!-- 작업중 -->
 							<div class="col-sm-6" id="signUp_div_id"><input type="text" class="form-control" id="signUp_id"></div>
 						</div>
