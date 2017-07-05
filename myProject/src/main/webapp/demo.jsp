@@ -22,8 +22,6 @@
 		var pwd2 = $("#signUp_pwd2").val();
 		var email = $("#signUp_email").val();
 		//작업중
-		
-		alert(id);
 		if ($.trim($("#signUp_id").val()) == "") {
 			$("#signUpTargetId").addClass("has-error");
 			$('#mainModal').modal({
@@ -35,10 +33,57 @@
 				remote : 'modal.html'
 			});
 		}
+		if ($.trim($("#signUp_pwd").val()) == "") {//2
+			$("#signUpTargetPwd").addClass("has-error");
+			$('#mainModal').modal({
+				remote : 'modal.html'
+			});
+		}else if ($.trim($("#signUp_pwd").val()) != "") {
+			$("#signUpTargetPwd").removeClass("has-error");
+			$('#mainModal').modal({
+				remote : 'modal.html'
+			});
+		}
+		if ($.trim($("#signUp_pwd2").val()) == "") {//3
+			$("#signUpTargetPwd2").addClass("has-error");
+			$('#mainModal').modal({
+				remote : 'modal.html'
+			});
+		}else if ($.trim($("#signUp_pwd2").val()) != "") {
+			$("#signUpTargetPwd2").removeClass("has-error");
+			$('#mainModal').modal({
+				remote : 'modal.html'
+			});
+		}
+		if ($.trim($("#signUp_email").val()) == "") {//4
+			$("#signUpTargetEmail").addClass("has-error");
+			$('#mainModal').modal({
+				remote : 'modal.html'
+			});
+		}else if ($.trim($("#signUp_email").val()) != "") {
+			$("#signUpTargetEmail").removeClass("has-error");
+			$('#mainModal').modal({
+				remote : 'modal.html'
+			});
+		}
+		
+		
+	}
+	function signUpCheckCancel(){
+		$("#signUpTargetId").removeClass("has-error");
+		$("#signUpTargetPwd").removeClass("has-error");
+		$("#signUpTargetPwd2").removeClass("has-error");
+		$("#signUpTargetEmail").removeClass("has-error");
+		$('#signUp_id').val('');
+		$('#signUp_pwd').val('');
+		$('#signUp_pwd2').val('');
+		$('#signUp_email').val('');
+		$('#mainModal').modal('hide')
+
 		
 	}
 	function signUpOk(){
-		alert("dd");
+		alert("ddasd");
 	}
 	function normalBoard() {
 		$("#First_Container").empty();
@@ -218,15 +263,15 @@ p {
 							<div class="col-sm-3">id : </div> <!-- 작업중 -->
 							<div class="col-sm-6" id="signUp_div_id"><input type="text" class="form-control" id="signUp_id"></div>
 						</div>
-						<div class="row">
+						<div class="row" id="signUpTargetPwd">
 							<div class="col-sm-3">pwd : </div>
 							<div class="col-sm-6" id="signUp_div_pwd"><input type="text" class="form-control" id="signUp_pwd"></div>
 						</div> 
-						<div class="row">
+						<div class="row" id="signUpTargetPwd2">
 							<div class="col-sm-3">pwd2 : </div>
 							<div class="col-sm-6" id="signUp_div_pwd2"><input type="text" class="form-control" id="signUp_pwd2"></div>
 						</div> 
-						<div class="row">
+						<div class="row" id="signUpTargetEmail">
 							<div class="col-sm-3">email : </div>
 							<div class="col-sm-6" id="signUp_div_email"><input type="text" class="form-control" id="signUp_email"></div>
 						</div> 
@@ -234,7 +279,7 @@ p {
 					</div>
 					<div class="modal-footer" id="modalFooter">
 						<button type="button" onclick="signUpCheck();" class="btn btn-default">작성완료</button>
-						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+						<button type="button" onclick="signUpCheckCancel();" class="btn btn-default">취소</button>
 					</div>
 				</div>
 
