@@ -8,25 +8,89 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat"
-	rel="stylesheet">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-	function LoginFunc(){
-		alert("dd")
+	function SignUpModal(){
+		$("#mainModal").modal('show');
 	}
-	
+	function signUpCheck(){
+		var id = $("#signUp_id").val();
+		var pwd = $("#signUp_pwd").val();
+		var pwd2 = $("#signUp_pwd2").val();
+		var email = $("#signUp_email").val();
+		//작업중
+		if ($.trim($("#signUp_id").val()) == "") {
+			$("#signUpTargetId").addClass("has-error");
+			$('#mainModal').modal({
+				remote : 'modal.html'
+			});
+		}else if ($.trim($("#signUp_id").val()) != "") {
+			$("#signUpTargetId").removeClass("has-error");
+			$('#mainModal').modal({
+				remote : 'modal.html'
+			});
+		}
+		if ($.trim($("#signUp_pwd").val()) == "") {//2
+			$("#signUpTargetPwd").addClass("has-error");
+			$('#mainModal').modal({
+				remote : 'modal.html'
+			});
+		}else if ($.trim($("#signUp_pwd").val()) != "") {
+			$("#signUpTargetPwd").removeClass("has-error");
+			$('#mainModal').modal({
+				remote : 'modal.html'
+			});
+		}
+		if ($.trim($("#signUp_pwd2").val()) == "") {//3
+			$("#signUpTargetPwd2").addClass("has-error");
+			$('#mainModal').modal({
+				remote : 'modal.html'
+			});
+		}else if ($.trim($("#signUp_pwd2").val()) != "") {
+			$("#signUpTargetPwd2").removeClass("has-error");
+			$('#mainModal').modal({
+				remote : 'modal.html'
+			});
+		}
+		if ($.trim($("#signUp_email").val()) == "") {//4
+			$("#signUpTargetEmail").addClass("has-error");
+			$('#mainModal').modal({
+				remote : 'modal.html'
+			});
+		}else if ($.trim($("#signUp_email").val()) != "") {
+			$("#signUpTargetEmail").removeClass("has-error");
+			$('#mainModal').modal({
+				remote : 'modal.html'
+			});
+		}
+		
+		
+	}
+	function signUpCheckCancel(){
+		$("#signUpTargetId").removeClass("has-error");
+		$("#signUpTargetPwd").removeClass("has-error");
+		$("#signUpTargetPwd2").removeClass("has-error");
+		$("#signUpTargetEmail").removeClass("has-error");
+		$('#signUp_id').val('');
+		$('#signUp_pwd').val('');
+		$('#signUp_pwd2').val('');
+		$('#signUp_email').val('');
+		$('#mainModal').modal('hide')
+
+		
+	}
+	function signUpOk(){
+		alert("ddasd");
+	}
 	function normalBoard() {
 		$("#First_Container").empty();
 		$("#First_Container").load("include_normal_board.jsp");
 	}
 	function scrollBoard() {
-
+		
 	}
 </script>
 <style>
@@ -39,7 +103,9 @@ body {
 .normal_board {
 	font-size: 18px;
 }
-
+.modal_color{
+	color: black;
+}
 .small_font {
 	font-size: 15px;
 }
@@ -118,12 +184,12 @@ p {
 
 	<!-- First Container -->
 	<div class="container-fluid bg-1" id="First_Container"
-		style="padding: 10px; height: auto; min-height: 600px; overflow: auto;">
+		style="padding: 10px; height: auto; min-height: 600px;">
 		<div class="text-center">
 			<div class="row">
 				<div class="col-sm-2"></div>
 				<div class="col-sm-8">
-					<h3 class="margin" style="font-style: color">로그인</h3>
+					<h3 class="margin">로그인</h3>
 				</div>
 				<div class="col-sm-2"></div>	
 			</div>
@@ -143,12 +209,11 @@ p {
 				<div class="col-sm-5"></div>
 				<div class="col-sm-2">
 					<button type="button" class="btn btn-default btn-mg" onclick="LoginFunc()">Login</button>
-					<button type="button" class="btn btn-default btn-mg" onclick="SignUpFunc()">Sign Up</button>
+					<button type="button" class="btn btn-default btn-mg" onclick="SignUpModal()">Sign Up</button>
 				</div>
 			</div>
 		</div>
 	</div>
-
 	<!-- Second Container -->
 	<div class="container-fluid bg-2 text-center">
 		안녕하세요 저는 작년 6월~11월 까지 acorn 아카데미에서 JAVA 프레임워크기반 프로그래밍 교육을 이수한 김영돈입니다.
@@ -183,6 +248,43 @@ p {
 			<font color="#ccffff">상기 디자인은 w3school 부트스트렙 모델을 참조하였습니다</font>
 		</p>
 	</footer>
+	
+	<div id="mainModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content modal_color">
+					<div class="modal-header" id="modalTitle">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<div class="modal-title"><font color="#blue"> 회원 가입</font></div>
+					</div>
+					<div class="modal-body" id="modalBody" style="text-align: right">
+						<div class="row" id="signUpTargetId">
+							<div class="col-sm-3">id : </div> <!-- 작업중 -->
+							<div class="col-sm-6" id="signUp_div_id"><input type="text" class="form-control" id="signUp_id"></div>
+						</div>
+						<div class="row" id="signUpTargetPwd">
+							<div class="col-sm-3">pwd : </div>
+							<div class="col-sm-6" id="signUp_div_pwd"><input type="text" class="form-control" id="signUp_pwd"></div>
+						</div> 
+						<div class="row" id="signUpTargetPwd2">
+							<div class="col-sm-3">pwd2 : </div>
+							<div class="col-sm-6" id="signUp_div_pwd2"><input type="text" class="form-control" id="signUp_pwd2"></div>
+						</div> 
+						<div class="row" id="signUpTargetEmail">
+							<div class="col-sm-3">email : </div>
+							<div class="col-sm-6" id="signUp_div_email"><input type="text" class="form-control" id="signUp_email"></div>
+						</div> 
+						
+					</div>
+					<div class="modal-footer" id="modalFooter">
+						<button type="button" onclick="signUpCheck();" class="btn btn-default">작성완료</button>
+						<button type="button" onclick="signUpCheckCancel();" class="btn btn-default">취소</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
 
 </body>
 </html>

@@ -209,4 +209,11 @@ public class Controller {
 		System.out.println(session.getAttribute("id"));
 	}
 
+	@RequestMapping("signUpView")
+	public ModelAndView signUp(){
+		System.out.println("ss");
+//		ModelAndView view = new ModelAndView();
+//		view.setViewName("signUpView");
+		return new ModelAndView("signUpView");
+	}
 }
