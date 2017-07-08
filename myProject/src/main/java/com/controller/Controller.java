@@ -175,6 +175,16 @@ public class Controller {
 		return null;
 	}
 	
+	@RequestMapping("search")
+	@ResponseBody
+	public Map<String, Object> search(@RequestParam("searchValue1") String searchValue1,
+			@RequestParam("searchValue2") String searchValue2){
+		System.out.println(searchValue1);
+		System.out.println(searchValue2);
+		
+		return null;
+	}
+	
 	@RequestMapping("login")
 	public ModelAndView login(){
 		

@@ -16,6 +16,7 @@
 	var pageSave = 1; //큰 현재 페이지
 	var state;
 	var countNo;
+	var searchValue1 = "title";
 
 	//$(document).ready(normalViewAll());
 	$(document).ready(
@@ -449,11 +450,30 @@
 
 	}
 	function selectEvent(selectObj) {
-		alert(selectObj.value + "가 선택 되었습니다.");
+		//alert(selectObj.value + "가 선택 되었습니다.");
+		searchValue1 = selectObj.value;
+		alert(searchValue1);
 	}
-	
+	//작업중
 	function search(){
-		
+		alert("d");
+		var searchValue2 = $("#searchVaule2").val();
+		alert(searchValue2);
+		$.ajax({
+
+			type : "get",
+			url : "search",
+			dataType : "json",
+			data : {searchValue1 : searchValue1,
+				searchValue2 : searchValue2},
+			
+			success : function(jsonData) {
+				
+			},
+			error : function(error){
+				console.log("search err")
+			}
+		});
 	}
 	
 
@@ -482,17 +502,17 @@
 			<div class="col-sm-2">
 				<div class="form-group">
 					<select class="form-control input-sm"id="sel1" onChange="javascript:selectEvent(this)">
-						<option class="small_font" value="제목">제목</option>
-						<option class="small_font" value="내용">내용</option>
-						<option class="small_font" value="작성자">작성자</option>
-						<option class="small_font" value="글번호">글번호</option> 
+						<option class="small_font" value="title">제목</option>
+						<option class="small_font" value="content">내용</option>
+						<option class="small_font" value="writer">작성자</option>
+						<option class="small_font" value="boardNum">글번호</option> 
 					</select>
 				</div>
 				
 			</div>
 			<div class="col-sm-2">
 				<div class="dddd search">
-					<input class="form-control" type="text">
+					<input class="form-control" type="text" id="searchVaule2">
 				</div>
 			</div>
 			<div class="col-sm-2"><button type="button" class="btn btn-default" onclick="search()">검색</button></div>
