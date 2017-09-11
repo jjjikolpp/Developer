@@ -8,68 +8,198 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat"
+	rel="stylesheet">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-	function SignUpModal(){
+	$(document).ready(
+		LoginCheck()
+	);
+	function LoginCheck(){
+		
+	}
+	
+	function LoginFunc(){
+		var id = $("#LoginIdTextBox").val();
+		var pwd = $("#LoginPwdTextBox").val();
+			$.ajax({
+				url : 'SignIn',
+				data : {
+					id : id,
+					pwd : pwd
+				},
+				type : 'POST',
+				dataType : 'json',
+				success : function(data){
+					console.log(data.state);
+					if (data.state == 'sign up ok') {
+						LoginView();
+					}
+				},
+				error : function(error){
+					console.log("Sign In error : " + error);
+				}
+				
+			});
+	}
+	function LoginView(){
+		$("#First_Container").empty();
+		$("#First_Container").load("loginView.jsp");
+	}
+	function SignUpModal() {
 		$("#mainModal").modal('show');
 	}
-	function signUpCheck(){
+	
+	function signUpCheck() {
 		var id = $("#signUp_id").val();
 		var pwd = $("#signUp_pwd").val();
 		var pwd2 = $("#signUp_pwd2").val();
 		var email = $("#signUp_email").val();
+		var pattern = /\s/g;
 		//작업중
-		if ($.trim($("#signUp_id").val()) == "") {
-			$("#signUpTargetId").addClass("has-error");
-			$('#mainModal').modal({
-				remote : 'modal.html'
-			});
-		}else if ($.trim($("#signUp_id").val()) != "") {
-			$("#signUpTargetId").removeClass("has-error");
-			$('#mainModal').modal({
-				remote : 'modal.html'
-			});
-		}
-		if ($.trim($("#signUp_pwd").val()) == "") {//2
+		if ($.trim(id) == "" || $.trim(pwd) == "" || $.trim(pwd2) == ""
+				|| $.trim(email) == "" || id == pattern || pwd == pattern
+				|| pwd2 == pattern || email == pattern
+				|| !email_check($("#signUp_email").val())) {
+
+			if ($.trim($("#signUp_id").val()) == "" || id == pattern) {
+				$("#signUpTargetId").addClass("has-error");
+				$('#mainModal').modal({
+					remote : 'modal.html'
+				});
+			} else if ($.trim($("#signUp_id").val()) != "" || id != pattern) {
+				$("#signUpTargetId").removeClass("has-error");
+				$('#mainModal').modal({
+					remote : 'modal.html'
+				});
+			}
+			if ($.trim($("#signUp_pwd").val()) == "" || pwd == pattern) {//2
+				$("#signUpTargetPwd").addClass("has-error");
+				$('#mainModal').modal({
+					remote : 'modal.html'
+				});
+			} else if ($.trim($("#signUp_pwd").val()) != "" || pwd != pattern) {
+				$("#signUpTargetPwd").removeClass("has-error");
+				$('#mainModal').modal({
+					remote : 'modal.html'
+				});
+			}
+			if ($.trim($("#signUp_pwd2").val()) == "" || pwd2 == pattern) {//3
+				$("#signUpTargetPwd2").addClass("has-error");
+				$('#mainModal').modal({
+					remote : 'modal.html'
+				});
+			} else if ($.trim($("#signUp_pwd2").val()) != "" || pwd2 != pattern) {
+				$("#signUpTargetPwd2").removeClass("has-error");
+				$('#mainModal').modal({
+					remote : 'modal.html'
+				});
+			}
+			if ($.trim($("#signUp_email").val()) == "" || email == pattern
+					|| !email_check($("#signUp_email").val())) {//4
+				$("#signUpTargetEmail").addClass("has-error");
+				$('#mainModal').modal({
+					remote : 'modal.html'
+				});
+			} else if ($.trim($("#signUp_email").val()) != ""
+					|| email != pattern
+					|| email_check($("#signUp_email").val())) {
+				$("#signUpTargetEmail").removeClass("has-error");
+				$('#mainModal').modal({
+					remote : 'modal.html'
+				});
+			}
+			return;
+		} else if (pwd != pwd2) {
 			$("#signUpTargetPwd").addClass("has-error");
-			$('#mainModal').modal({
-				remote : 'modal.html'
-			});
-		}else if ($.trim($("#signUp_pwd").val()) != "") {
-			$("#signUpTargetPwd").removeClass("has-error");
-			$('#mainModal').modal({
-				remote : 'modal.html'
-			});
-		}
-		if ($.trim($("#signUp_pwd2").val()) == "") {//3
 			$("#signUpTargetPwd2").addClass("has-error");
 			$('#mainModal').modal({
 				remote : 'modal.html'
 			});
-		}else if ($.trim($("#signUp_pwd2").val()) != "") {
+			return;
+		} else {
+			$("#signUpTargetPwd").removeClass("has-error");
 			$("#signUpTargetPwd2").removeClass("has-error");
 			$('#mainModal').modal({
 				remote : 'modal.html'
 			});
-		}
-		if ($.trim($("#signUp_email").val()) == "") {//4
-			$("#signUpTargetEmail").addClass("has-error");
-			$('#mainModal').modal({
-				remote : 'modal.html'
+
+			$.ajax({
+				url : 'signUpCheck',
+				dataType : 'json',
+				type : 'POST',
+				data : {
+					id : id,
+					email : email
+				},
+				success : function(state) {
+					var idCheckVar = 0;
+					var emailCheckVar = 0;
+					if (state.idCheck == "SignUpIdCheckOk") {
+						console.log("sign Up Check Id ok"); // 작업중  체크확인 가 불 
+						idCheckVar = 1;
+					} else if (state.idCheck == "SignUpIdCheckNo") {
+						console.log("sign Up Check Id No");
+						str = "이미 존재하는 아이디 입니다";
+						$("#signUp_div_idChange").append(str);
+
+					} else {
+						console.log("signUpIdCheck() err");
+					}
+					if (state.emailCheck == "SignUpEmailCheckOk") {
+						console.log("email ok")
+						emailCheckVar = 1;
+					} else if (state.emailCheck == "SignUpEmailCheckNo") {
+						console.log("email no")
+						str = "이미 가입된 이메일 입니다";
+						$("#signUp_div_idChange").append(str);
+					} else {
+						console.log(" email check err");
+					}
+					console.log(idCheckVar + " + " + emailCheckVar); 
+					if (idCheckVar == 1 && emailCheckVar == 1) {
+						signUpOk(id, pwd, email);
+					}
+
+				},
+				error : function(error) {
+					console.log(error);
+				}
 			});
-		}else if ($.trim($("#signUp_email").val()) != "") {
-			$("#signUpTargetEmail").removeClass("has-error");
-			$('#mainModal').modal({
-				remote : 'modal.html'
-			});
 		}
-		
-		
+
 	}
-	function signUpCheckCancel(){
+
+	function signUpOk(id, pwd, email) { //여기
+		$.ajax({
+			url : 'signUpOk',
+			type : 'post',
+			datatype : 'json',
+			data : {
+				id : id,
+				pwd : pwd,
+				email : email,
+			},
+			success:function(data){
+					alert('가입 완료');
+			}, error: function(error){
+				console.log(error);
+			}
+		});
+		signUpCheckCancel();
+	}
+
+	function email_check(email) {
+		var regex = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+		return (email != '' && email != 'undefined' && regex.test(email));
+	}
+
+	function signUpCheckCancel() {
 		$("#signUpTargetId").removeClass("has-error");
 		$("#signUpTargetPwd").removeClass("has-error");
 		$("#signUpTargetPwd2").removeClass("has-error");
@@ -78,19 +208,13 @@
 		$('#signUp_pwd').val('');
 		$('#signUp_pwd2').val('');
 		$('#signUp_email').val('');
-		$('#mainModal').modal('hide')
+		$('.alertDiv').remove();
+		$('#mainModal').modal('hide');
+	}
 
-		
-	}
-	function signUpOk(){
-		alert("ddasd");
-	}
 	function normalBoard() {
 		$("#First_Container").empty();
 		$("#First_Container").load("include_normal_board.jsp");
-	}
-	function scrollBoard() {
-		
 	}
 </script>
 <style>
@@ -103,9 +227,15 @@ body {
 .normal_board {
 	font-size: 18px;
 }
-.modal_color{
+
+.alertDiv {
+	text-align: left;
+}
+
+.modal_color {
 	color: black;
 }
+
 .small_font {
 	font-size: 15px;
 }
@@ -191,25 +321,27 @@ p {
 				<div class="col-sm-8">
 					<h3 class="margin">로그인</h3>
 				</div>
-				<div class="col-sm-2"></div>	
+				<div class="col-sm-2"></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-5" style="text-align: right">
-				id  :
+				<div class="col-sm-5" style="text-align: right">id :</div>
+				<div class="col-sm-2">
+					<input type="text" class="form-control" id="LoginIdTextBox">
 				</div>
-				<div class="col-sm-2"><input type="text" class="form-control" id="usr"></div>
 			</div>
 			<div class="row">
-				<div class="col-sm-5" style="text-align: right">
-				pw  :
+				<div class="col-sm-5" style="text-align: right">pw :</div>
+				<div class="col-sm-2">
+					<input type="text" class="form-control" id="LoginPwdTextBox">
 				</div>
-				<div class="col-sm-2"><input type="text" class="form-control" id="usr"></div>
 			</div>
 			<div class="row">
 				<div class="col-sm-5"></div>
 				<div class="col-sm-2">
-					<button type="button" class="btn btn-default btn-mg" onclick="LoginFunc()">Login</button>
-					<button type="button" class="btn btn-default btn-mg" onclick="SignUpModal()">Sign Up</button>
+					<button type="button" class="btn btn-default btn-mg"
+						onclick="LoginFunc()">Login</button>
+					<button type="button" class="btn btn-default btn-mg"
+						onclick="SignUpModal()">Sign Up</button>
 				</div>
 			</div>
 		</div>
@@ -248,43 +380,60 @@ p {
 			<font color="#ccffff">상기 디자인은 w3school 부트스트렙 모델을 참조하였습니다</font>
 		</p>
 	</footer>
-	
-	<div id="mainModal" class="modal fade" role="dialog">
-			<div class="modal-dialog">
 
-				<!-- Modal content-->
-				<div class="modal-content modal_color">
-					<div class="modal-header" id="modalTitle">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<div class="modal-title"><font color="#blue"> 회원 가입</font></div>
-					</div>
-					<div class="modal-body" id="modalBody" style="text-align: right">
-						<div class="row" id="signUpTargetId">
-							<div class="col-sm-3">id : </div> <!-- 작업중 -->
-							<div class="col-sm-6" id="signUp_div_id"><input type="text" class="form-control" id="signUp_id"></div>
-						</div>
-						<div class="row" id="signUpTargetPwd">
-							<div class="col-sm-3">pwd : </div>
-							<div class="col-sm-6" id="signUp_div_pwd"><input type="text" class="form-control" id="signUp_pwd"></div>
-						</div> 
-						<div class="row" id="signUpTargetPwd2">
-							<div class="col-sm-3">pwd2 : </div>
-							<div class="col-sm-6" id="signUp_div_pwd2"><input type="text" class="form-control" id="signUp_pwd2"></div>
-						</div> 
-						<div class="row" id="signUpTargetEmail">
-							<div class="col-sm-3">email : </div>
-							<div class="col-sm-6" id="signUp_div_email"><input type="text" class="form-control" id="signUp_email"></div>
-						</div> 
-						
-					</div>
-					<div class="modal-footer" id="modalFooter">
-						<button type="button" onclick="signUpCheck();" class="btn btn-default">작성완료</button>
-						<button type="button" onclick="signUpCheckCancel();" class="btn btn-default">취소</button>
+	<div id="mainModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<!-- (메인 모달)  -->
+			<div class="modal-content modal_color">
+				<div class="modal-header" id="modalTitle">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<div class="modal-title">
+						<font color="#blue"> 회원 가입</font>
 					</div>
 				</div>
+				<div class="modal-body" id="modalBody" style="text-align: right">
+					<div class="row" id="signUpTargetId">
+						<div class="col-sm-3">id :</div>
+						<!-- 작업중 -->
+						<div class="col-sm-6" id="signUp_div_id">
+							<input type="text" class="form-control" id="signUp_id">
+						</div>
+						<div class="col-sm-3 alertDiv" id="signUp_div_idChange"></div>
+					</div>
+					<div class="row" id="signUpTargetPwd">
+						<div class="col-sm-3">pwd :</div>
+						<div class="col-sm-6" id="signUp_div_pwd">
+							<input type="text" class="form-control" id="signUp_pwd">
+						</div>
+					</div>
+					<div class="row" id="signUpTargetPwd2">
+						<div class="col-sm-3">pwd2 :</div>
+						<div class="col-sm-6" id="signUp_div_pwd2">
+							<input type="text" class="form-control" id="signUp_pwd2">
+						</div>
+						<div class="col-sm-3 alertDiv" id="signUp_div_pwd2Change"></div>
+					</div>
+					<div class="row" id="signUpTargetEmail">
+						<div class="col-sm-3">email :</div>
+						<div class="col-sm-6" id="signUp_div_email">
+							<input type="text" class="form-control" id="signUp_email">
+						</div>
+						<div class="col-sm-3 alertDiv" id="signUp_div_emailChange"></div>
+					</div>
 
+				</div>
+				<div class="modal-footer" id="modalFooter">
+					<button type="button" onclick="signUpCheck();"
+						class="btn btn-default">작성완료</button>
+					<button type="button" onclick="signUpCheckCancel();"
+						class="btn btn-default">취소</button>
+				</div>
 			</div>
+
 		</div>
+	</div>
 
 </body>
 </html>

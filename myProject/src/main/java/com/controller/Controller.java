@@ -2,7 +2,7 @@ package com.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,10 +19,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.model.AnnoInter;
 import com.model.DaoInter;
 import com.model.Normal_Board_Bean;
 import com.model.Normal_Board_Dto;
+import com.model.User_Dto;
 
 @org.springframework.stereotype.Controller
 public class Controller {
@@ -181,16 +181,12 @@ public class Controller {
 			@RequestParam("searchValue2") String searchValue2){
 		System.out.println(searchValue1);
 		System.out.println(searchValue2);
+		List<Normal_Board_Dto> list = daointer.Search(searchValue1, searchValue2);
 		
+		System.out.println("search Test : " + list.size());
 		return null;
 	}
 	
-	@RequestMapping("login")
-	public ModelAndView login(){
-		
-		
-		return null;
-	}
 	
 	public void sessionTest(){
 		System.out.println("aaa");
@@ -209,11 +205,119 @@ public class Controller {
 		System.out.println(session.getAttribute("id"));
 	}
 
-	@RequestMapping("signUpView")
-	public ModelAndView signUp(){
-		System.out.println("ss");
-//		ModelAndView view = new ModelAndView();
-//		view.setViewName("signUpView");
-		return new ModelAndView("signUpView");
+	@RequestMapping("signUpCheck")
+	@ResponseBody
+	public Map<String, Object> signUpIdCheck(@RequestParam("id")String id,
+			@RequestParam("email")String email){
+		Map<String, Object> state = new HashMap<String, Object>();
+		System.out.println("signUpCheck 확인");
+		String idCheck = "";
+		String emailCheck = "";
+		
+		String aa = daointer.SignUpIdCheck(id);
+		System.out.println(aa);
+		if(Integer.parseInt(aa) == 0){
+			idCheck = "SignUpIdCheckOk";
+		}else{
+			idCheck = "SignUpIdCheckNo";
+		}
+		
+		aa = daointer.SignUpEmailCheck(email);
+		System.out.println(aa);
+		if (Integer.parseInt(aa) == 0) {
+			System.out.println("okok");
+			emailCheck = "SignUpEmailCheckOk";
+		}else{
+			System.out.println("nono");
+			emailCheck = "SignUpEmailCheckNo";
+		}
+		state.put("idCheck", idCheck);
+		state.put("emailCheck", emailCheck);
+		System.out.println("작업중");
+		return state; // 작업중
+	}
+	
+	@RequestMapping("signUpOk")
+	@ResponseBody
+	public Map<String, String> signUpOk(@RequestParam("id")String id, @RequestParam("pwd")String pwd, @RequestParam("email") String email){
+		Calendar cal = Calendar.getInstance();
+		System.out.println(cal.get(Calendar.YEAR));
+		System.out.println(cal.get(Calendar.MONTH)+1);
+		System.out.println(cal.get(Calendar.DAY_OF_MONTH));
+		String year = Integer.toString(cal.get(Calendar.YEAR));
+		String month = Integer.toString(cal.get(Calendar.MONTH)+1);
+		String day = Integer.toString(cal.get(Calendar.DAY_OF_MONTH));
+		String hour = Integer.toString(cal.get(Calendar.HOUR));
+		String min = Integer.toString(cal.get(Calendar.MINUTE));
+		String sec = Integer.toString(cal.get(Calendar.SECOND));
+		String date = year + "-" + month + "-" + day + "/" + hour + ":" + min + ":" + sec;
+		System.out.println(date);
+		
+		boolean a = daointer.SignUpOk(id, pwd, email, date);
+		String dd = null;
+		if (a) {
+			dd = "signUpOk";
+		}else{
+			dd = "signUpNo";
+		}
+		Map<String, String> data = new HashMap<String, String>();
+		data.put("state", dd);
+		return data;
+	}
+	
+	@RequestMapping("SignIn")
+	@ResponseBody
+	public Map<String, String> signIn(@RequestParam("id")String id, @RequestParam("pwd")String pwd,
+			HttpSession session){
+		boolean ddd = session.isNew();
+		System.out.println(ddd);
+		//User_Dto dto = daointer.SignIn(id);
+		String state = null;
+		String dd = daointer.SignUpIdCheck(id);
+		if (Integer.parseInt(dd) == 1) {
+			User_Dto dto = daointer.SignIn(id);
+			String pwdc= dto.getUser_password();
+			System.out.println("pwdc : " + pwdc + "//" + "pwd : " + pwd );
+			if (pwdc.equals(pwd)) {
+				state = "sign up ok";
+				session.setAttribute("id", id);
+			}else{
+				System.out.println("pwdc : " + pwdc + "//" + "pwd : " + pwd );
+				state = "pwd invalid";
+			}
+		}else{
+			state = "id invalid";
+		}
+		Map<String, String> data = new HashMap<String, String>();
+		data.put("state", state);
+		return data;
+	}
+	
+	@RequestMapping("loginCheck")
+	@ResponseBody
+	public Map<String, String> LoginCheck(HttpSession session){
+		Map<String, String> data = new HashMap<String, String>();
+		Object ad = session.getAttribute("id");
+		String adc = (String)ad;
+		System.out.println(adc + " :ccccc");
+		if (adc == null || adc == "") {
+			data.put("state", "logout");
+			System.out.println("logout");
+		}else{
+			data.put("state", "login");
+			System.out.println("login");
+		}
+		System.out.println("fffff");
+		return data;
+	}
+	
+	@RequestMapping(value = "/logOut.do", method = RequestMethod.GET)
+	public ModelAndView LogOut(HttpSession session){
+		System.out.println("logOut err???");
+		session.notifyAll();
+		ModelAndView view = new ModelAndView();
+		view.setViewName("../../demo");
+		//view.setViewName("signUpView");
+		return view;
 	}
 }
