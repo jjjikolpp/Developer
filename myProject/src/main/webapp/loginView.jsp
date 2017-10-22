@@ -7,12 +7,9 @@
 <title>Insert title here</title>
 </head>
 <script type="text/javascript">
-$(document).ready( function(){
-	
-
-		loginView(),
-		alert('cccc');
-});
+$(document).ready(
+		loginView()
+);
 
 function loginView(){
 			$('#loginView').empty();
@@ -21,15 +18,13 @@ function loginView(){
 		str += member_id;
 		str += ' 님 어서오세요~';
 		str += '&nbsp&nbsp&nbsp&nbsp';
-		str += '<button type="button" class="btn btn-default" url="/logOut.do">logout</button>';
+		str += '<form action="logOut" method="post">';
+		str += '<input type="submit" class="btn btn-default" value="logout"></button>';
+		str += '</form>';
 		$('#loginView').append(str);
-
-		console.log('loginView err : ' + error)
-
 	}
 </script>
 <body>
 	<div id="loginView" align="center"></div>
-
 </body>
 </html>

@@ -36,11 +36,26 @@ public class DataDao implements DaoInter {
 		System.out.println(pageNo + " page No 는");
 		return annointer.Normal_Board_Vew_List(pageNo);
 	}
+	
+	@Override
+	public int Normal_Search_No_Count(String n_no) throws DataAccessException {
+		return annointer.Normal_Search_no_Count(n_no);
+	}
 
 	@Override
-	public List<Normal_Board_Dto> Search(String searchValue1, String searchValue2) throws DataAccessException {
-		// TODO Auto-generated method stub
-		return annointer.Normal_Search_Title(searchValue1, searchValue2);
+	public List<Normal_Board_Dto> Normal_Search_No(String n_no) throws DataAccessException {
+		return annointer.Normal_Search_no(n_no);
+	}
+	
+	@Override
+	public int Normal_Search_Title_Count(String title, String re) throws DataAccessException {
+		return annointer.Normal_Search_Title_Count(title, re);
+	}
+	
+	@Override
+	public List<Normal_Board_Dto> Normal_Search_Title(String title, String re , int no) throws DataAccessException {
+		System.out.println(title + " : " + re);
+		return annointer.Normal_Search_Title(title, re, no);
 	}
 
 	@Override
@@ -70,12 +85,6 @@ public class DataDao implements DaoInter {
 	public String NormalCount() throws DataAccessException {
 		String count = annointer.Normal_Board_Count();
 		return count;
-	}
-
-	@Override
-	public List<Normal_Board_Dto> NormalSearch(String title, String re) throws DataAccessException {
-		List<Normal_Board_Dto> list = annointer.Normal_Search_Title(title, re);
-		return list;
 	}
 
 }

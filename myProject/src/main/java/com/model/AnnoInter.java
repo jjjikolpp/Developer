@@ -31,11 +31,17 @@ public interface AnnoInter {
 	@Select("select count(*) from normal_board")
 	public String Normal_Board_Count();
 	
-	@Select("select * from normal_board where ${title} like '%${re}%'")
-	public List<Normal_Board_Dto> Normal_Search_Title(@Param("title")String title,@Param("re") String re); // 검색 만드는중
+	@Select("select count(*) from normal_board where n_no = #{n_no}")
+	public int Normal_Search_no_Count(String n_no);
 	
-	@Select("select * from normal_board where n_no = 1")
-	public Normal_Board_Dto Normal_Search_no(String search);
+	@Select("select * from normal_board where n_no = #{n_no}")
+	public List<Normal_Board_Dto> Normal_Search_no(String n_no);//limit 걸기
+	
+	@Select("select count(*) from normal_board where ${title} like '%${re}%'")
+	public int Normal_Search_Title_Count(@Param("title")String title, @Param("re")String re);
+	
+	@Select("select * from normal_board where ${title} like '%${re}%' order by n_no desc limit #{no},3")
+	public List<Normal_Board_Dto> Normal_Search_Title(@Param("title")String title,@Param("re") String re , @Param("no")int no);//
 	
 	@Select("select count(user_name) from user_list where user_name = #{id}")
 	public String SignUpIdCheck(String id);

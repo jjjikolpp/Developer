@@ -21,7 +21,22 @@
 		LoginCheck()
 	);
 	function LoginCheck(){
-		
+		$.ajax({
+			url : 'loginCheck',
+			type : 'POST',
+			dataType : 'json',
+			success : function(data){
+				console.log(data.state);
+				if (data.state == 'login') {
+					LoginView();
+				}else{
+					LogOutView();
+				}
+			},
+			error : function(error){
+				console.log('LoginCheck err : ' + error);
+			}
+		});
 	}
 	
 	function LoginFunc(){
@@ -37,8 +52,20 @@
 				dataType : 'json',
 				success : function(data){
 					console.log(data.state);
-					if (data.state == 'sign up ok') {
+					if (data.state == 'sign_in_ok') {
+						$("#Login_id_error_div").remove();
+						$("#Login_pwd_error_div").remove();
 						LoginView();
+					}else if (data.state == 'id_invalid') {
+						str = '존재하지 않는 id 입니다.';
+						$("#Login_id_error_div").append(str);
+						
+					}else if (data.state == 'pwd_invalid'){
+						str = '잘못된 비밀번호 입니다.';
+						$("#Login_id_error_div").remove();
+						$("#Login_pwd_error_div").append(str);
+					}else{
+						console.log("Sign In error");
 					}
 				},
 				error : function(error){
@@ -51,6 +78,10 @@
 		$("#First_Container").empty();
 		$("#First_Container").load("loginView.jsp");
 	}
+	function LogOutView(){
+		$("#First_Container").empty();
+		$("#First_Container").load("logOutView.jsp");
+	}
 	function SignUpModal() {
 		$("#mainModal").modal('show');
 	}
@@ -60,8 +91,8 @@
 		var pwd = $("#signUp_pwd").val();
 		var pwd2 = $("#signUp_pwd2").val();
 		var email = $("#signUp_email").val();
-		var pattern = /\s/g;
-		//작업중
+		var pattern = /\s/g; // 공백체크
+		
 		if ($.trim(id) == "" || $.trim(pwd) == "" || $.trim(pwd2) == ""
 				|| $.trim(email) == "" || id == pattern || pwd == pattern
 				|| pwd2 == pattern || email == pattern
@@ -306,7 +337,7 @@ p {
 
 					<li><a href="#" onClick="normalBoard();">Normal Board</a></li>
 					<li><a href="#" onclick="scrollBoard();">Scrolling Board</a></li>
-					<li><a href="#" href="include">Media</a></li>
+					<li><a href="#" onClick="mediaBoard();">Media</a></li>
 				</ul>
 			</div>
 		</div>
@@ -315,42 +346,11 @@ p {
 	<!-- First Container -->
 	<div class="container-fluid bg-1" id="First_Container"
 		style="padding: 10px; height: auto; min-height: 600px;">
-		<div class="text-center">
-			<div class="row">
-				<div class="col-sm-2"></div>
-				<div class="col-sm-8">
-					<h3 class="margin">로그인</h3>
-				</div>
-				<div class="col-sm-2"></div>
-			</div>
-			<div class="row">
-				<div class="col-sm-5" style="text-align: right">id :</div>
-				<div class="col-sm-2">
-					<input type="text" class="form-control" id="LoginIdTextBox">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-5" style="text-align: right">pw :</div>
-				<div class="col-sm-2">
-					<input type="text" class="form-control" id="LoginPwdTextBox">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-5"></div>
-				<div class="col-sm-2">
-					<button type="button" class="btn btn-default btn-mg"
-						onclick="LoginFunc()">Login</button>
-					<button type="button" class="btn btn-default btn-mg"
-						onclick="SignUpModal()">Sign Up</button>
-				</div>
-			</div>
-		</div>
 	</div>
 	<!-- Second Container -->
 	<div class="container-fluid bg-2 text-center">
 		안녕하세요 저는 작년 6월~11월 까지 acorn 아카데미에서 JAVA 프레임워크기반 프로그래밍 교육을 이수한 김영돈입니다.
-		<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
-			data-target="#myModal">Open Modal</button>
+		
 	</div>
 
 	<!-- Third Container (Grid) -->
@@ -359,18 +359,15 @@ p {
 		<br>
 		<div class="row">
 			<div class="col-sm-4">
-				<p>Normal Board 는 일반적으로 사용하는 페이징 게시판을 구현하였습니다</p>
+				<p>Normal Board 는 일반적으로 사용하는 페이징 게시판을 구현하였습니다.</p>
 
 			</div>
 			<div class="col-sm-4">
-				<p>Scrolling Board 의 경우 sns 형식의 무한 스크롤링 게시판으로 인스타그램 처럼 만들시
-					DB작업등으로 시간이 많이 소모됩니다 (지금은 스크롤링만 구현하였습니다)</p>
+				<p>Scrolling Board 의 경우 sns 형식의 무한 스크롤링 게시판으로 인스타그램 처럼 만들려고 합니다.</p>
 			</div>
 			<div class="col-sm-4">
 				<p>Media 게시판의 경우 동영상 게제 등을 하고 싶은데 free AWS 용량이 허용될지 모르겠습니다 ( 일단
 					준비중입니다 )</p>
-				<form>dd</form>
-
 			</div>
 		</div>
 	</div>
